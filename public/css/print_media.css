@@ -1,0 +1,126 @@
+@page {
+  size: A4;
+  margin: 0;
+  border:0px;
+}
+@media print {
+  .page_size{
+		width: 910px;
+        height: 1500px;
+            margin: 0 auto;
+        border:0px;
+  }
+
+    .bg_size{
+		width: 910px;
+        height: 1300px;
+            margin: 0 auto;
+  }
+
+   .page_size1{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+   .page_size2{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+   .page_size3{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+
+   .page_size4{
+    width: 910px;
+    height: 1350px;
+    margin: 0 auto;
+  }
+
+   .page_size5{
+    width: 910px;
+    height: 1400px;
+    margin: 0 auto;
+  }
+
+
+     .page_size6{
+    width: 910px;
+    height: 1400px;
+    margin: 0 auto;
+  }
+
+     .page_size7{
+    width: 910px;
+    height: 1450px;
+    margin: 0 auto;
+  }
+
+     .page_size8{
+    width: 910px;
+    height: 2800px;
+    margin: 0 auto;
+  }
+
+       .page_size9{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+         .page_size10{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+         .page_size11{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+         .page_size12{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+         .page_size13{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }
+
+         .page_size14{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }  
+
+
+         .page_size15{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }  
+
+
+         .page_size16{
+    width: 910px;
+    height: 1500px;
+    margin: 0 auto;
+  }  
+  
+
+.logo{
+  width: 200px;height: 200px;margin-left: 77%;margin-top: 10px;
+}
+
+}
+

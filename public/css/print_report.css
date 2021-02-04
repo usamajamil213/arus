@@ -1,0 +1,50 @@
+input{
+    border: none !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px !important;
+}
+
+.bg-grey{
+    background-color: #d6d2d2;
+  }
+
+    .border-black-right{
+    border : 0px;
+    border-bottom:0px !important;
+    border-top:0px !important;    
+    border-left: 0px !important;    
+    border-right: 1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black !important;
+  }
+
+    .short_desc{
+      font-size: 12px;
+      text-decoration: underline;
+      font-style: italic;
+    }
+
+ .page_size{
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+  }
+
+   .page_size1{
+    width: 400px;
+    height: 1100px;
+    margin: 0 auto;
+  }
+
+    .bg_size{
+    width: 600px;
+        height: 700px;
+        margin: 0 auto;
+  }  
+
+.logo{
+  width: 100px;height: 100px;margin-left: 70%;margin-top: 10px;
+}
+
+ 

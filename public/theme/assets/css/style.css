@@ -1,0 +1,34 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+img.pamojapay-logo {
+	width: 400px;
+	height: auto;
+}
+img.pamojapay-logo-forgot-password {
+	width: 200px;
+	height: auto;
+}
+
+h1.heading-num-stat {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+td.list-img img {
+	width: 50px;
+	height: auto;
+}
+
+.form-control:focus {
+	border-color: #056839 !important;
+}
