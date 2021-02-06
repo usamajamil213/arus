@@ -47,11 +47,11 @@
 
 
 
-                <li class=" navigation-header"><span>Admin</span></li>
+                {{-- <li class=" navigation-header"><span>Admin</span></li>
 
                 
 
-                <li class=" nav-item" id="admins"><a href=""><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Spot Admins</span></a></li>
+                <li class=" nav-item" id="admins"><a href=""><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Spot Admins</span></a></li> --}}
 
                 
 

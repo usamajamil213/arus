@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User\User;
 use Validator;
 use DB;
 use Exception;
@@ -13,12 +13,47 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 
 class AuthController extends Controller
-{
+{    
+   public function check_email(Request $request){
+    $validator = Validator::make([
+                    'email' => $request->email,
+                ],
+                [
+                    'email' => 'required|email|unique:users,email',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+
+                    return $response;         
+            }
+            $response = [
+                        'success' => true,
+                        'success_message' => 'email is valid',
+
+                    ];
+
+                    return $response;
+
+
+   }
+
+
     public function signup(Request $request)
 	{
         // dd($request);
         $validator = Validator::make([
                     'name' => $request->name,
+                    'phone' => $request->phone,
                     'email' => $request->email,
                     // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
                     'password' => $request->password,
@@ -29,9 +64,9 @@ class AuthController extends Controller
                 [
                     'name' => 'required',
                     'email' => 'required|email|unique:users,email',
-                    // 'contact' => 'required',
+                    'phone' => 'required',
                     'password'  => 'required|min:6|max:25',
-                     'device_token'  => 'required',
+                     // 'device_token'  => 'required',
                 ]
             );
     
@@ -43,7 +78,7 @@ class AuthController extends Controller
             
                     $response = [
                         'success' => false,
-                        'success_message' => $error,
+                        'error_message' => $error,
 
                     ];
                     // return $validator->errors()->first('email');
@@ -56,21 +91,16 @@ class AuthController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         // $user->contact = $request->contact;
-         $user->device_token = $request->device_token;
+         // $user->device_token = $request->device_token;
         $user->password = $request->password?Hash::make($request->password):null;
         $user->save();
 
 
-        $role = DB::table('roles')->where('slug','user')->first();
+        $role = DB::table('roles')->where('slug','provider')->first();
         $user->roles()->attach($role->id);   
         $message = trans('User Added');
-        // $obj = new \stdClass();
-        // $obj->message = $message;
-        // $obj->data = (object)array('installer'=>$user);
-        // $data['response']=$obj;
-
-        // $message = $request->message;
         $request = $user;
 
         $response = [
@@ -80,9 +110,9 @@ class AuthController extends Controller
                 'id' => $request->id,
                 'name' => $request->name,
                 'email' => $request->email,
-                'contact' => $request->contact,
-                'password' => $request->password,
-                'device_token' => $request->device_token,
+                'phone' => $request->phone,
+                // 'password' => $request->password,
+                // 'device_token' => $request->device_token,
             ],
         ];
         //print_r($response);die();
@@ -92,6 +122,7 @@ class AuthController extends Controller
 
 
     public function login(Request $request){ 
+
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             // $success['token'] =  $user->createToken('MyApp')-> accessToken; 
@@ -107,7 +138,7 @@ class AuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'password' => $user->password,
-                'contact' => $user->contact,
+                'phone' => $user->phone,
                 'img'=> $user->img,
                 
             ],
