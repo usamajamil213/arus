@@ -64,10 +64,16 @@ Route::get('/',[
 'as' => 'admin.dashboard'
 ]);
 Route::group(['prefix'=>'/admin'],function(){
+
 Route::get('dashboard',[
 'uses' => 'Auth\AdminController@dashboard',
 'as' => 'admin.dashboard'
 ]);
+
+Route::get('skills',[
+     'uses' => 'Skills\SkillsController@index',
+     'as' => 'admin.skills'
+     ]);
  
 
 });

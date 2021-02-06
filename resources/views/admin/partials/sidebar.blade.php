@@ -34,7 +34,10 @@
 
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                    @can('admin')
-                <li class="nav-item" id="dashboard"><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
+                <li class="nav-item" id=""><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
+
+                <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
+
 
                 
 

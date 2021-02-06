@@ -3269,7 +3269,7 @@ input:focus ~ .bg-success {
 }
 
 .bg-success {
-  background-color : black !important;
+  background-color : #BABFC7 !important;
 }
 .bg-success .card-header, .bg-success .card-footer {
   background-color : transparent;
