@@ -18,9 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('user_signup', 'API\AuthController@signup');
-Route::post('user_login', 'API\AuthController@login');
-Route::post('social_login', 'API\AuthController@social_login');
+Route::post('emailCheck', 'API\AuthController@check_email');
+Route::post('userSignup', 'API\AuthController@signup');
+Route::post('provideSignup', 'API\AuthController@provider_signup');
+Route::post('userLogin', 'API\AuthController@login');
+Route::post('socialLogin', 'API\AuthController@social_login');
 Route::post('update_image', 'API\AuthController@update_image');
 Route::post('update_name', 'API\AuthController@change_name');
 
