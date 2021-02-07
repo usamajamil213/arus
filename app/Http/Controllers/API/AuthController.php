@@ -500,6 +500,4 @@ $validator = Validator::make([
        }                     
         
 
-  }
-
 }
