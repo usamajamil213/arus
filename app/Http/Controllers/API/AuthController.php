@@ -440,28 +440,25 @@ $validator = Validator::make([
 
 }
   public function send_otp(Request $request){
-    $validator = Validator::make([           
-                    'email' => $request->email,
+    // $validator = Validator::make([           
+    //                 'email' => $request->email,
                     
-                ],
-                [                   
-                    ' email'  =>'required',                   
-                ]
-            );
+    //             ],
+    //             [                   
+    //                 ' email'  =>'required',                   
+    //             ]
+    //         );
     
-            if ($validator->fails())
-            {
-
-                    $error = $validator->errors()->all();
+    //         if ($validator->fails())
+    //         {
+    //                 $error = $validator->errors()->all();
             
-                    $response = [
-                        'success' => false,
-                        'error_message' => $error ,
-                    ];
-
-                    return $response;          
-
-            }
+    //                 $response = [
+    //                     'success' => false,
+    //                     'error_message' => $error ,
+    //                 ];
+    //                 return $response;          
+    //         }
      $chkt = EmailVerification::where('email',$request->email)->first();
         $code = rand(100000,999999);    
         if(!empty($chkt)){
@@ -500,6 +497,6 @@ $validator = Validator::make([
        }                     
         
 
-  }
+
 
 }
