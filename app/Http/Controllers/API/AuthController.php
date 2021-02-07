@@ -5,12 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User\User;
+use App\Models\User\EmailVerification;
 use Validator;
 use DB;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use Mail;
 
 class AuthController extends Controller
 {    
@@ -437,6 +439,67 @@ $validator = Validator::make([
 
 
 }
+  public function send_otp(Request $request){
+    $validator = Validator::make([           
+                    'email' => $request->email,
+                    
+                ],
+                [                   
+                    ' email'  =>'required',                   
+                ]
+            );
+    
+            if ($validator->fails())
+            {
 
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error ,
+                    ];
+
+                    return $response;          
+
+            }
+     $chkt = EmailVerification::where('email',$request->email)->first();
+        $code = rand(100000,999999);    
+        if(!empty($chkt)){
+
+            $chkt->code  = $code;
+            $chkt->status = 0;
+            $chkt->save();
+
+        }else{
+
+            $newt = new EmailVerification();
+            $newt->email = $request->email;
+            $newt->code  = $code;
+            $newt->status = 0;
+            $newt->save();
+        }
+
+                    $data = ['email'=>$request->email,'email_code'=>$code];
+                    $email = $request->email;
+                    
+
+                    Mail::send('mails.email_otp',['data'=>$data],function($mail) use ($email){
+                        $mail->to($email,'Arus')->from("arus@floatingyoutube.com")->subject("Arus Email Verification");
+                    });
+
+                        $message = trans('Verification Email Sent');
+
+                        $response = [
+                                    'success' => true,
+                                    'success_message' => $message,
+                                    'data'=>$email
+                            ];
+
+                            return $response;                        
+
+       }                     
+        
+
+  }
 
 }
