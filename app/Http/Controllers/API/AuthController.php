@@ -50,7 +50,9 @@ class AuthController extends Controller
    }
 
 
+ 
     public function provider_signup(Request $request)
+
 	{
         // dd($request);
         $validator = Validator::make([
