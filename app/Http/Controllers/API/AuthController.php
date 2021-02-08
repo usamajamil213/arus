@@ -50,7 +50,7 @@ class AuthController extends Controller
    }
 
 
-    public function signup(Request $request)
+    public function provider_signup(Request $request)
 	{
         // dd($request);
         $validator = Validator::make([
@@ -60,7 +60,7 @@ class AuthController extends Controller
                     // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
                     'password' => $request->password,
                     // 'contact' => $request->contact,
-                     'device_token'=> $request->device_token,
+                     // 'device_token'=> $request->device_token,
                     
                 ],
                 [
@@ -495,8 +495,57 @@ $validator = Validator::make([
                             return $response;                        
 
        }                     
-        
+        public function verify_otp(Request $request){
 
+            $validator = Validator::make([           
+                    'email' => $request->email,
+                    'code' => $request->code,
+                    
+                ],
+                [                   
+                    'email'  =>'required',    
+                    'code'  =>'required',               
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error ,
+                    ];
+                    return $response;          
+            }
+            
+            $chkt = EmailVerification::where('email',$request->email)->where('code',$request->code)->first();
+        if(!empty($chkt)){
 
+            $chkt->status = 1;
+            $chkt->save();
+
+                         $message = trans('OTP Verified');
+
+                        $response = [
+                                    'success' => true,
+                                    'success_message' => $message,
+                                    'data'=>'true'
+                            ];
+
+                            return $response;
+        }else{
+
+                        $message = trans('OTP Not Verified');
+
+                        $response = [
+                                    'success' => false,
+                                    'success_message' => $message,
+                                    'data'=>'false'
+                            ];
+
+                            return $response;
+        }
+        }
 
 }
