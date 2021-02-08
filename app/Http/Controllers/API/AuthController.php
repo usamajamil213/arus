@@ -608,6 +608,5 @@ $validator = Validator::make([
         ];
          }
          
-
         }
 }
