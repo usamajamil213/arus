@@ -133,7 +133,7 @@ class AuthController extends Controller
         // $device_token = $request->device_token;
         // $user->device_token = $device_token;
          $user->save();
-            return response()->json(['success' => 'user loged in', 
+            return response()->json(['success_message' => 'user loged in', 
 
             'user' =>[
                 'id' => $user->id,
@@ -145,10 +145,11 @@ class AuthController extends Controller
                 'role'=> $user->roles[0]->name,
                 
             ],
+             'success'=>true
             ]);
         } 
         else{ 
-            return response()->json(['error'=>'Unauthorised'], 401); 
+            return response()->json(['error_message'=>'Unauthorised','error_code'=>'401','success'=>false]); 
         } 
     }
 
