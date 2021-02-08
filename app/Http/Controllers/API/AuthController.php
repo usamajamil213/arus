@@ -509,8 +509,6 @@ $validator = Validator::make([
        }                     
         public function verify_otp(Request $request){
 
-<<<<<<< HEAD
-=======
             $validator = Validator::make([           
                     'email' => $request->email,
                     'code' => $request->code,
@@ -561,6 +559,4 @@ $validator = Validator::make([
                             return $response;
         }
         }
-
->>>>>>> usama
 }
