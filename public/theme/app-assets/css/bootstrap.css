@@ -10450,7 +10450,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .text-white {
-  color : #FFFFFF !important;
+  color : #000000 !important;
 }
 
 .text-primary {

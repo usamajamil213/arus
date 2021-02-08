@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>TeamRaha:Login</title>
+    <title>Arus-Ex:Login</title>
     <link rel="apple-touch-icon" href="{{asset('public/theme/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/theme/app-assets/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
@@ -54,19 +54,21 @@
                     <div class="col-xl-8 col-11 d-flex justify-content-center">
                         <div class="card bg-black rounded-0 mb-0">
                             <div class="row m-0">
-                                <div class="col-lg-6 d-lg-block d-none text-center align-self-center  py-0">
+
+                                {{-- <div class="col-lg-6 d-lg-block d-none text-center align-self-center  py-0">
                                  <div class="col-lg-6 d-lg-block d-none text-center align-self-center  py-0">
-                                 <img src="{{asset('public/images/logo.png')}}" alt="branding logo" class="pamojapay-logo">
+                                 <img src="{{asset('images/arus-ex_logo.png')}}" alt="branding logo" class="pamojapay-logo">
                                 </div>
-                                </div>
-                                <div class="col-lg-6 col-12 p-0">
+                                </div> --}}
+
+                                <div class="">
                                     <div class="card rounded-0 mb-0 px-2 bg-success text-white py-5">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0 text-white">LOGIN</h4>
+                                                <h4 class="mb-0 text-white text-center"><b> ARUS-EX </b></h4>
                                             </div>
                                         </div>
-                                        <p class="px-2">Welcome back, please login to your account.</p>
+                                        <p class="px-2">Your Preferred On Demand System Integrator </p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
                                                 <form action="{{route('login.post')}}" method="post">
@@ -103,7 +105,7 @@
                                                         </div>
                                                         <!--<div class="text-right"><a href="user-forgot-password.html" class="card-link text-white">Forgot Password?</a></div>-->
                                                     </div>
-                                                    <button type="submit" class="btn btn-dark btn-block">LOGIN</button>
+                                                    <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
                                                 </form>
                                             </div>
                                         </div>

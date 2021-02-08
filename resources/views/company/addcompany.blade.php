@@ -1,0 +1,175 @@
+@extends('admin.partials.default')
+
+@section('content')
+<div class="app-content content">
+
+        <div class="content-overlay"></div>
+
+        <div class="header-navbar-shadow"></div>
+
+    <div class="content-wrapper">
+
+        <div class="content-header row">
+
+            <div class="content-header-left col-md-9 col-12 mb-2">
+
+                <div class="row breadcrumbs-top">
+
+                    <div class="col-12">
+
+                        <h2 class="content-header-title float-left mb-0"> Add Company</h2>
+
+                        <div class="breadcrumb-wrapper col-12">
+
+                            <ol class="breadcrumb">
+
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a>
+
+                                </li>
+
+                                <li class="breadcrumb-item active">Company
+
+                                </li>
+                                <li class="breadcrumb-item active">Add Company
+
+                                </li>
+
+                            </ol>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <form class="form-group" action="{{route('admin.companystore')}}" method="POST" enctype="multipart/form-data" id="">
+
+            @csrf
+
+            <div class="modal-header">
+
+                <h4 class="modal-title">Add Company</h4>
+                    
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form">
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> First Name :</label>
+                        <input class="form-control"  name="f_name" placeholder="Person In Charge (First Name)" type="text" required>
+                        <span class="text-danger">{{ $errors->first('f_name') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Last Name :</label>
+                        <input class="form-control"  name="l_name" placeholder="Last Name" type="text" required>
+                        <span class="text-danger">{{ $errors->first('l_name') }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Company Name :</label>
+                        <input class="form-control"  name="comp_name" placeholder="Company Name(E.g.ABC SDN.BHD.)" type="text" required>
+                        
+                        <span class="text-danger">{{ $errors->first('comp_name') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Company Registration No: </label>
+                        <input class="form-control"  name="comp_reg_no" placeholder="Company Registration No(E.g. 1234567-w)" type="text" required>
+                        <span class="text-danger">{{ $errors->first('comp_reg_no') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Company Adress :</label>
+                        <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress" required></textarea>
+                        <span class="text-danger">{{ $errors->first('comp_adress') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Post Code :</label>
+                        <input class="form-control"  name="post_c" placeholder="Post Code" type="text" required>
+                        <span class="text-danger">{{ $errors->first('post_c') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> State :</label>
+                        <select class="browser-default custom-select" name="state" id="state" required>
+
+                        <option selected value="" disabled>Select</option>
+                        <option value="East Coast">East Coast</option>
+                        <option value="Southern">Southern</option>
+                        <option value="Northern">Northern</option>
+                        <option value="Central">Central</option>
+                        <option value="Sabah">Sabah</option>
+                        <option value="Sarwak">Sarwak</option>
+                        </select>
+                        <span class="text-danger">{{ $errors->first('state') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Region :</label>
+                        <select class="browser-default custom-select" name="region" id="region" >
+                        <option selected value="" disabled>Select Region</option>
+                        <option value="Terengganu">Terengganu</option>
+                        <option value="Pahag">Pahag</option>
+                        <option value="Kelantan">Kelantan</option>
+                        <option value="Melaka">Melaka</option>
+                        <option value="Johor">Johor</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Keddah">Keddah</option>
+                        <option value="Perak">Perak</option>
+                        <option value="Perlis">Perlis</option>
+                        <option value="Selangor">Selangor</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="N. Semblin">N. Semblin</option>
+
+                        </select>
+                        
+                        <span class="text-danger">{{ $errors->first('region') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Position :</label>
+                        <input class="form-control"  name="position" placeholder="Position" type="text" required>
+                        <span class="text-danger">{{ $errors->first('position') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Department :</label>
+                        <input class="form-control"  name="department" placeholder="Department" type="text" required>
+                        <span class="text-danger">{{ $errors->first('department') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Phone No :</label>
+                        <input class="form-control"  name="cell_no" placeholder="10-000000" type="number" required>
+                        <span class="text-danger">{{ $errors->first('cell_no') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Email :</label>
+                        <input class="form-control"  name="email" placeholder="Email" type="email" required>
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom01" class="mb-1"> Confirm Email :</label>
+                        <input class="form-control"  name="con_email" placeholder="Confirm Email" type="email" required>
+                        <span class="text-danger">{{ $errors->first('con_email') }}</span>
+                    </div>
+                                
+                </div>
+
+            </div>
+
+            <div class="pull-left">
+
+                <button type="submit" class="btn btn-primary ">Add</button>
+
+
+            </div>
+
+        </form> 
+            
+    </div>
+</div>
+
+@endsection
+
