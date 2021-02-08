@@ -27,5 +27,6 @@ Route::post('updateImage', 'API\AuthController@update_image');
 Route::post('updateName', 'API\AuthController@change_name');
 Route::post('sendEmailOtp', 'API\AuthController@send_otp');
 Route::post('verifiyEmailOtp', 'API\AuthController@verify_otp');
+Route::post('forgetPassword', 'API\AuthController@forget_password');
 
 

@@ -560,5 +560,54 @@ $validator = Validator::make([
                             return $response;
         }
         }
+        public function forget_password(Request $request){
+        $validator = Validator::make([
+                    
+                    'email' => $request->email,
+                    'new_password' => $request->new_password,
+                    
+                ],
+                [
+                    
+                    'email'  =>'required',
+                    'new_password' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
 
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'success_message' => $error ,
+                    ];
+
+                    return $response;          
+            }
+         $user=User::where('email',$request->email)->first();
+         if(!empty($user)){
+        $user->password = $request->new_password?Hash::make($request->new_password):null;
+        $user->save();
+        $message = trans('Password Updated');
+        $message = $message;
+        $request = $user;
+        $response = [
+            'success' => true,
+            'success_message' => $message,
+        ];
+        //print_r($response);die();
+
+        return $response;
+         }
+         else{
+             $response = [
+            'success' => false,
+            'success_message' =>'Invalid Email',
+        ];
+         }
+         
+
+        }
 }
