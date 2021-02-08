@@ -128,10 +128,10 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             // $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-             $user = User::where('email',$request->email)->first();
+             $user = User::where('email',$request->email)->with('roles')->first();
        // dd($user);
-        $device_token = $request->device_token;
-        $user->device_token = $device_token;
+        // $device_token = $request->device_token;
+        // $user->device_token = $device_token;
          $user->save();
             return response()->json(['success' => 'user loged in', 
 
@@ -142,6 +142,7 @@ class AuthController extends Controller
                 'password' => $user->password,
                 'phone' => $user->phone,
                 'img'=> $user->img,
+                'role'=> $user->roles[0]->name,
                 
             ],
             ]);
@@ -459,6 +460,17 @@ $validator = Validator::make([
     //                 ];
     //                 return $response;          
     //         }
+       $user=User::where('email',$request->email)->first();
+       if(empty($user)){
+         $message = trans('Invalid Email');
+
+                        $response = [
+                                    'success' => false,
+                                    'success_message' => $message,
+                            ];
+
+                            return $response; 
+       }
      $chkt = EmailVerification::where('email',$request->email)->first();
         $code = rand(100000,999999);    
         if(!empty($chkt)){
