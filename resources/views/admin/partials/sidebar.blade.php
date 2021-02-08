@@ -18,7 +18,7 @@
 
                         <!--<div class="brand-logo"></div>-->
 
-                        <h2 class="brand-text mb-0">Team Raha</h2>
+                        <h2 class="brand-text mb-0">ARUS-EX</h2>
 
                     </a></li>
 
@@ -38,7 +38,7 @@
 
                 <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
 
-
+                <li class=" nav-item" id="admins"><a href="{{route('admin.company')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">Company</span></a></li>
                 
 
                 <!-- <li class=" nav-item"><a href=""><i class="feather icon-volume-1"></i><span class="menu-title" data-i18n="Campaigns">Campaigns</span></a></li>

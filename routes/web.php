@@ -70,10 +70,49 @@ Route::get('dashboard',[
 'as' => 'admin.dashboard'
 ]);
 
-Route::get('skills',[
-     'uses' => 'Skills\SkillsController@index',
-     'as' => 'admin.skills'
-     ]);
- 
+     Route::get('skills',[
+          'uses' => 'Skills\SkillsController@index',
+          'as' => 'admin.skills'
+          ]);
+
+     Route::post('skills',[
+          'uses' => 'Skills\SkillsController@store',
+          'as' => 'admin.skillsstore'
+          ]);
+
+     Route::post('skills/update',[
+          'uses' => 'Skills\SkillsController@update',
+          'as' => 'admin.skillupdate'
+          ]);
+     
+     Route::post('skills/delete',[
+          'uses' => 'Skills\SkillsController@delete',
+          'as' => 'admin.skilldelete'
+          ]);
+
+     Route::get('company',[
+          'uses' => 'Company\CompanyController@index',
+          'as' => 'admin.company'
+          ]);
+
+     Route::get('addcompany',[
+          'uses' => 'Company\CompanyController@addcompany',
+          'as' => 'admin.addcompany'
+          ]); 
+
+     Route::post('company',[
+          'uses' => 'Company\CompanyController@store',
+          'as' => 'admin.companystore'
+          ]);
+
+     Route::post('company/update',[
+          'uses' => 'Company\CompanyController@update',
+          'as' => 'admin.companyupdate'
+          ]);
+     
+     Route::post('company/delete',[
+          'uses' => 'Company\CompanyController@delete',
+          'as' => 'admin.companydelete'
+          ]);
 
 });
