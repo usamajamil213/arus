@@ -5,12 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User\User;
+use App\Models\User\EmailVerification;
 use Validator;
 use DB;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use Mail;
 
 class AuthController extends Controller
 {    
@@ -48,7 +50,9 @@ class AuthController extends Controller
    }
 
 
-    public function signup(Request $request)
+ 
+    public function provider_signup(Request $request)
+
 	{
         // dd($request);
         $validator = Validator::make([
@@ -58,7 +62,7 @@ class AuthController extends Controller
                     // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
                     'password' => $request->password,
                     // 'contact' => $request->contact,
-                     'device_token'=> $request->device_token,
+                     // 'device_token'=> $request->device_token,
                     
                 ],
                 [
@@ -126,12 +130,12 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             // $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-             $user = User::where('email',$request->email)->first();
+             $user = User::where('email',$request->email)->with('roles')->first();
        // dd($user);
-        $device_token = $request->device_token;
-        $user->device_token = $device_token;
+        // $device_token = $request->device_token;
+        // $user->device_token = $device_token;
          $user->save();
-            return response()->json(['success' => 'user loged in', 
+            return response()->json(['success_message' => 'user loged in', 
 
             'user' =>[
                 'id' => $user->id,
@@ -140,12 +144,14 @@ class AuthController extends Controller
                 'password' => $user->password,
                 'phone' => $user->phone,
                 'img'=> $user->img,
+                'role'=> $user->roles[0]->name,
                 
             ],
+             'success'=>true
             ]);
         } 
         else{ 
-            return response()->json(['error'=>'Unauthorised'], 401); 
+            return response()->json(['error_message'=>'Unauthorised','error_code'=>'401','success'=>false]); 
         } 
     }
 
@@ -437,6 +443,173 @@ $validator = Validator::make([
 
 
 }
+  public function send_otp(Request $request){
+    // $validator = Validator::make([           
+    //                 'email' => $request->email,
+                    
+    //             ],
+    //             [                   
+    //                 ' email'  =>'required',                   
+    //             ]
+    //         );
+    
+    //         if ($validator->fails())
+    //         {
+    //                 $error = $validator->errors()->all();
+            
+    //                 $response = [
+    //                     'success' => false,
+    //                     'error_message' => $error ,
+    //                 ];
+    //                 return $response;          
+    //         }
+       $user=User::where('email',$request->email)->first();
+       if(empty($user)){
+         $message = trans('Invalid Email');
 
+                        $response = [
+                                    'success' => false,
+                                    'success_message' => $message,
+                            ];
 
+                            return $response; 
+       }
+     $chkt = EmailVerification::where('email',$request->email)->first();
+        $code = rand(100000,999999);    
+        if(!empty($chkt)){
+
+            $chkt->code  = $code;
+            $chkt->status = 0;
+            $chkt->save();
+
+        }else{
+
+            $newt = new EmailVerification();
+            $newt->email = $request->email;
+            $newt->code  = $code;
+            $newt->status = 0;
+            $newt->save();
+        }
+
+                    $data = ['email'=>$request->email,'email_code'=>$code];
+                    $email = $request->email;
+                    
+
+                    Mail::send('mails.email_otp',['data'=>$data],function($mail) use ($email){
+                        $mail->to($email,'Arus')->from("arus@floatingyoutube.com")->subject("Arus Email Verification");
+                    });
+
+                        $message = trans('Verification Email Sent');
+
+                        $response = [
+                                    'success' => true,
+                                    'success_message' => $message,
+                                    'data'=>$email
+                            ];
+
+                            return $response;                        
+
+       }                     
+        public function verify_otp(Request $request){
+
+            $validator = Validator::make([           
+                    'email' => $request->email,
+                    'code' => $request->code,
+                    
+                ],
+                [                   
+                    'email'  =>'required',    
+                    'code'  =>'required',               
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error ,
+                    ];
+                    return $response;          
+            }
+            
+            $chkt = EmailVerification::where('email',$request->email)->where('code',$request->code)->first();
+        if(!empty($chkt)){
+
+            $chkt->status = 1;
+            $chkt->save();
+
+                         $message = trans('OTP Verified');
+
+                        $response = [
+                                    'success' => true,
+                                    'success_message' => $message,
+                                    'data'=>'true'
+                            ];
+
+                            return $response;
+        }else{
+
+                        $message = trans('OTP Not Verified');
+
+                        $response = [
+                                    'success' => false,
+                                    'success_message' => $message,
+                                    'data'=>'false'
+                            ];
+
+                            return $response;
+        }
+        }
+        public function forget_password(Request $request){
+        $validator = Validator::make([
+                    
+                    'email' => $request->email,
+                    'new_password' => $request->new_password,
+                    
+                ],
+                [
+                    
+                    'email'  =>'required',
+                    'new_password' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'success_message' => $error ,
+                    ];
+
+                    return $response;          
+            }
+         $user=User::where('email',$request->email)->first();
+         if(!empty($user)){
+        $user->password = $request->new_password?Hash::make($request->new_password):null;
+        $user->save();
+        $message = trans('Password Updated');
+        $message = $message;
+        $request = $user;
+        $response = [
+            'success' => true,
+            'success_message' => $message,
+        ];
+        //print_r($response);die();
+
+        return $response;
+         }
+         else{
+             $response = [
+            'success' => false,
+            'success_message' =>'Invalid Email',
+        ];
+         }
+         
+
+        }
 }

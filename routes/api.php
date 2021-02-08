@@ -23,8 +23,10 @@ Route::post('userSignup', 'API\AuthController@signup');
 Route::post('provideSignup', 'API\AuthController@provider_signup');
 Route::post('userLogin', 'API\AuthController@login');
 Route::post('socialLogin', 'API\AuthController@social_login');
-Route::post('update_image', 'API\AuthController@update_image');
-Route::post('update_name', 'API\AuthController@change_name');
-
+Route::post('updateImage', 'API\AuthController@update_image');
+Route::post('updateName', 'API\AuthController@change_name');
+Route::post('sendEmailOtp', 'API\AuthController@send_otp');
+Route::post('verifiyEmailOtp', 'API\AuthController@verify_otp');
+Route::post('forgetPassword', 'API\AuthController@forget_password');
 
 
