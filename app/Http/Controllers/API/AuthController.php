@@ -146,8 +146,10 @@ class AuthController extends Controller
             'user' =>[
                 'id' => $request->id,
                 'name' => $request->name,
+                'l_name' => $request->l_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
+
                 // 'password' => $request->password,
                 // 'device_token' => $request->device_token,
             ],
@@ -157,7 +159,80 @@ class AuthController extends Controller
         return $response;
     }
 
+    public function user_signup(Request $request){
 
+        $validator = Validator::make([
+                    'name' => $request->name,
+                    'l_name' => $request->l_name,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                    // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
+                    'password' => $request->password,
+                    'address' => $request->address,
+                     // 'device_token'=> $request->device_token,
+                    
+                ],
+                [
+                    'name' => 'required',
+                    'email' => 'required|email|unique:users,email',
+                    'phone' => 'required',
+                    'password'  => 'required|min:6|max:25',
+                    'address'  => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    // $error = $validator->errors()->first('email');
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+                    // return $validator->errors()->first('email');
+
+                    return $response;          
+
+            }
+        $user = new User();
+        $user->name = $request->name;
+        $user->l_name = $request->l_name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        // $user->contact = $request->contact;
+         // $user->device_token = $request->device_token;
+        $user->password = $request->password?Hash::make($request->password):null;
+        $user->save();
+        $role = DB::table('roles')->where('slug','user')->first();
+        $user->roles()->attach($role->id); 
+        $message = trans('User Added');
+        $request = $user;
+
+        $response = [
+            'success' => true,
+            'success_message' => $message,
+            'user' =>[
+                'id' => $request->id,
+                'name' => $request->name,
+                'l_name' => $request->l_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+
+                // 'password' => $request->password,
+                // 'device_token' => $request->device_token,
+            ],
+        ];
+        //print_r($response);die();
+
+        return $response;
+
+
+    }
     public function login(Request $request){ 
 
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 

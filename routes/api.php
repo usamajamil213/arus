@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('emailCheck', 'API\AuthController@check_email');
-Route::post('userSignup', 'API\AuthController@signup');
+Route::post('userSignup', 'API\AuthController@user_signup');
 Route::post('provideSignup', 'API\AuthController@provider_signup');
 Route::post('userLogin', 'API\AuthController@login');
 Route::post('socialLogin', 'API\AuthController@social_login');
