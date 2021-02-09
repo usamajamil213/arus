@@ -29,5 +29,5 @@ Route::post('sendEmailOtp', 'API\AuthController@send_otp');
 Route::post('verifiyEmailOtp', 'API\AuthController@verify_otp');
 Route::post('forgetPassword', 'API\AuthController@forget_password');
 Route::post('getcompanies', 'Company\api\ApiController@get_companies');
-
+Route::post('getSkills', 'Skills\api\ApiController@get_skills');
 
