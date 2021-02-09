@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User\User;
 use App\Models\User\EmailVerification;
+use App\Models\Provider\ProviderCertificate;
+use App\Models\Provider\ProviderSkill;
 use Validator;
 use DB;
 use Exception;
@@ -59,6 +61,9 @@ class AuthController extends Controller
                     'name' => $request->name,
                     'phone' => $request->phone,
                     'email' => $request->email,
+                    'company_id' => $request->company_id,
+                    'certificates' => $request->certificates,
+                    'skill_id' => $request->skill_id,
                     // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
                     'password' => $request->password,
                     // 'contact' => $request->contact,
@@ -69,6 +74,9 @@ class AuthController extends Controller
                     'name' => 'required',
                     'email' => 'required|email|unique:users,email',
                     'phone' => 'required',
+                    'company_id' => 'required',
+                    'certificates' => 'array',
+                    'skill_id' => 'required',
                     'password'  => 'required|min:6|max:25',
                      // 'device_token'  => 'required',
                 ]
@@ -92,19 +100,44 @@ class AuthController extends Controller
             }
 
         $user = new User();
-
         $user->name = $request->name;
+        $user->l_name = $request->l_name;
         $user->email = $request->email;
+        $user->company_id = $request->company_id;
         $user->phone = $request->phone;
         // $user->contact = $request->contact;
          // $user->device_token = $request->device_token;
         $user->password = $request->password?Hash::make($request->password):null;
         $user->save();
-
-
         $role = DB::table('roles')->where('slug','provider')->first();
-        $user->roles()->attach($role->id);   
-        $message = trans('User Added');
+        $user->roles()->attach($role->id); 
+    
+        $destinationPath = public_path()."/images/user_certificates";
+            foreach($request->certificates as $image){
+               $new_img = new ProviderCertificate();
+               $extension =  $image->getClientOriginalExtension();
+               $fileName = time();
+               $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+               if(!$image->move($destinationPath,$fileName))
+                {
+                       throw new \Exception("Failed Upload");                    
+                }
+
+                $picture = $fileName;
+                $new_img->certicate_image= $picture;
+                $new_img->provider_id=$user->id; 
+                $new_img->save();
+            }
+
+          foreach ($request->skill_id as $sk) {
+            $new=  new ProviderSkill();
+            $new->skill_id=$sk;
+            $new->provider_id=$user->id;
+            $new->save();
+          }
+
+
+        $message = trans('Provider Added');
         $request = $user;
 
         $response = [
