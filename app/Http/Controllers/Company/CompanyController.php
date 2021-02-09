@@ -11,6 +11,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies=Company::all();
+        // dd($companies);
         return view('company.company',compact('companies'));
     }
 
@@ -39,8 +40,18 @@ class CompanyController extends Controller
         $companies->save();
         return redirect('/admin/company');
         // return redirect()->back();
-    
     }
+
+    
+    public function edit($id)
+    {
+        // dd($id);
+        $company=Company::where('id',$id)->first();
+        // dd($company);
+        // return view('company.showdetails',compact('company'));
+
+    }
+
 
     public function update(Request $request)
     {   
@@ -69,4 +80,14 @@ class CompanyController extends Controller
         $companies->delete();
         return redirect()->back();
     }
+
+    public function show( $id)
+    {
+        // dd($id);
+        $company=Company::where('id',$id)->first();
+        // dd($company);
+        return view('company.showdetails',compact('company'));
+
+    }
+
 }

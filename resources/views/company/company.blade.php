@@ -221,11 +221,23 @@
                                                     <td>{{$company->email}}</td>
                                                     <td>
                                                         <div>
-                                                            <a href="javascript:void(0)" class="edit_com" data-news_id = "{{$company->id}}" data-category_name = "" data-category_image ="" data-toggle="modal" data-target="#editcomp{{$company->id}}"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
+                                                        <div class="dropdown">
+
+                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Action
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                            <a href="javascript:void(0)" class="edit_com pl-1" data-news_id = "{{$company->id}}" data-category_name = "" data-category_image ="" data-toggle="modal" data-target="#editcomp{{$company->id}}"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
 
                                                             <a href="javascript:void(0)" class="deletebtn" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
                                                             <i class="fa fa-trash font-danger"></i>
                                                             </a>
+
+                                                            <a class="dropdown-item" href="{{route('admin.companyshow',$company->id)}}">Details</a>
+                                                            </div>
+                                                        </div>
+                                                            
                                                             
                                                         <!-- Edit modal -->
                                                             <div class="modal fade" id="editcomp{{$company->id}}" tabindex="-1"       role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -265,7 +277,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="validationCustom01" class="mb-1"> Company Adress :</label>
-                                                                                            <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress"  value="{{$company->comp_adress}}" required></textarea>
+                                                                                            <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress"  required> {{$company->comp_adress}}</textarea>
                                                                                             <span class="text-danger">{{ $errors->first('comp_adress') }}</span>
                                                                                         </div>
                                                                                         <div class="form-group">
@@ -275,9 +287,8 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="validationCustom01" class="mb-1"> State :</label>
-                                                                                            <select class="browser-default custom-select" name="state" value="{{$company->State}} id="state" required>
-
-                                                                                            <option selected value="" disabled>Select</option>
+                                                                                            <select class="browser-default custom-select" name="state" id="state" required>
+                                                                                            <option selected value="{{$company->state}}" disabled>{{$company->state}}</option>
                                                                                             <option value="East Coast">East Coast</option>
                                                                                             <option value="Southern">Southern</option>
                                                                                             <option value="Northern">Northern</option>
@@ -332,7 +343,7 @@
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="validationCustom01" class="mb-1"> Confirm Email :</label>
-                                                                                            <input class="form-control"  name="con_email" placeholder="Confirm Email" value="" type="email" required>
+                                                                                            <input class="form-control"  name="con_email" placeholder="Confirm Email" value="{{$company->email}}" type="email" required>
                                                                                             <span class="text-danger">{{ $errors->first('con_email') }}</span>
                                                                                         </div>
                                                                                         

@@ -115,4 +115,9 @@ Route::get('dashboard',[
           'as' => 'admin.companydelete'
           ]);
 
+     Route::get('company/show/{id}',[
+          'uses' => 'Company\CompanyController@show',
+          'as' => 'admin.companyshow'
+          ]);
+
 });
