@@ -401,6 +401,7 @@
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
+                                                    <th>Region </th>
                                                     <th>Position</th> 
                                                     <th>Department</th>                               
                                                     <th>Cell No</th>                               

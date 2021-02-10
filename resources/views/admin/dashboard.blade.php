@@ -23,7 +23,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">122</h2>
-                                    <p class="mb-0">Members</p>
+                                    <p class="mb-0">User</p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-1"></div>-->
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1"> 1001</h2>
-                                    <p class="mb-0">Lorum </p>
+                                    <p class="mb-0">Companies </p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-2"></div>-->
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">122</h2>
-                                    <p class="mb-0">Spme thing</p>
+                                    <p class="mb-0">Providers</p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-3"></div>-->

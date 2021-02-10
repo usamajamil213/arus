@@ -55,9 +55,9 @@ class LoginController extends Controller
 
         if(Auth::user()->hasAccess(['admin'])){         
           return redirect()->route('admin.dashboard');
-        }elseif(Auth::user()->hasAccess(['user'])){
+        }elseif(Auth::user()->hasAccess(['superadmin'])){
           
-          return redirect()->route('home'); 
+          return redirect()->route('admin.dashboard'); 
         
         }
         elseif(Auth::user()->hasAccess(['provider'])){
