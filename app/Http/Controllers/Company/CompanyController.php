@@ -46,9 +46,9 @@ class CompanyController extends Controller
     public function edit($id)
     {
         // dd($id);
-        $company=Company::where('id',$id)->first();
+         $company=Company::where('id',$id)->first();
         // dd($company);
-        // return view('company.showdetails',compact('company'));
+         return view('company.edit', compact('company'));
 
     }
 
@@ -70,7 +70,9 @@ class CompanyController extends Controller
         $companies->email=$request->email;
         $companies->password=$request->password;
         $companies->save();
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect('/admin/company');
+
 
     }
 

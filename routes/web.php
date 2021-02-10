@@ -67,52 +67,74 @@ Route::group(['prefix'=>'/admin'],function(){
 
 Route::get('dashboard',[
 'uses' => 'Auth\AdminController@dashboard',
-'as' => 'admin.dashboard'
+'as' => 'admin.dashboard',
+// 'middleware'=>'can:superadmin'
 ]);
 
      Route::get('skills',[
           'uses' => 'Skills\SkillsController@index',
-          'as' => 'admin.skills'
+          'as' => 'admin.skills',
+          // 'middleware'=>'can:superadmin'
           ]);
 
      Route::post('skills',[
           'uses' => 'Skills\SkillsController@store',
-          'as' => 'admin.skillsstore'
+          'as' => 'admin.skillsstore',
+          // 'middleware'=>'can:superadmin'
           ]);
 
      Route::post('skills/update',[
           'uses' => 'Skills\SkillsController@update',
-          'as' => 'admin.skillupdate'
+          'as' => 'admin.skillupdate',
+          // 'middleware'=>'can:superadmin'
+
           ]);
      
      Route::post('skills/delete',[
           'uses' => 'Skills\SkillsController@delete',
-          'as' => 'admin.skilldelete'
+          'as' => 'admin.skilldelete',
+          // 'middleware'=>'can:superadmin'
+
           ]);
 
      Route::get('company',[
           'uses' => 'Company\CompanyController@index',
-          'as' => 'admin.company'
+          'as' => 'admin.company',
+          // 'middleware'=>'can:superadmin'
+          
           ]);
 
      Route::get('addcompany',[
           'uses' => 'Company\CompanyController@addcompany',
-          'as' => 'admin.addcompany'
+          'as' => 'admin.addcompany',
+          // 'middleware'=>'can:superadmin'
+
           ]); 
+
+          Route::get('companyedit/{id}',[
+               'uses' => 'Company\CompanyController@edit',
+               'as' => 'admin.companyedit',
+               // 'middleware'=>'can:superadmin'
+               ]);
 
      Route::post('company',[
           'uses' => 'Company\CompanyController@store',
-          'as' => 'admin.companystore'
+          'as' => 'admin.companystore',
+          // 'middleware'=>'can:superadmin'
           ]);
 
      Route::post('company/update',[
           'uses' => 'Company\CompanyController@update',
-          'as' => 'admin.companyupdate'
+          'as' => 'admin.companyupdate',
+          // 'middleware'=>'can:superadmin'
+
           ]);
      
      Route::post('company/delete',[
           'uses' => 'Company\CompanyController@delete',
-          'as' => 'admin.companydelete'
+          'as' => 'admin.companydelete',
+          // 'middleware'=>'can:superadmin'
+
           ]);
 
      Route::get('company/show/{id}',[

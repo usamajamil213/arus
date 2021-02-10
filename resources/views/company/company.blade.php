@@ -228,7 +228,7 @@
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                            <a href="javascript:void(0)" class="edit_com pl-1" data-news_id = "{{$company->id}}" data-category_name = "" data-category_image ="" data-toggle="modal" data-target="#editcomp{{$company->id}}"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
+                                                            <a href="{{route('admin.companyedit',$company->id)}}" class="edit_com pl-1"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
 
                                                             <a href="javascript:void(0)" class="deletebtn" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
                                                             <i class="fa fa-trash font-danger"></i>
@@ -401,6 +401,7 @@
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
+                                                    <th>Region </th>
                                                     <th>Position</th> 
                                                     <th>Department</th>                               
                                                     <th>Cell No</th>                               
