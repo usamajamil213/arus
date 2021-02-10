@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="author" content="PamojaPay">
-    <title>TeamRaha</title>
+    <title>Arus - EX</title>
     <link rel="apple-touch-icon" href="{{asset('public/theme/app-assets/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/theme/app-assets/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
