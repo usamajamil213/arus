@@ -40,13 +40,30 @@ class AuthController extends Controller
 
                     return $response;         
             }
-            $response = [
-                        'success' => true,
-                        'success_message' => 'email is valid',
+            else{
+             $code = rand(100000,999999); 
+             $newt = new EmailVerification();
+             $newt->email = $request->email;
+             $newt->code  = $code;
+             $newt->status = 0;
+             $newt->save();
+             $data = ['email'=>$request->email,'email_code'=>$code];
+             $email = $request->email;
+            Mail::send('mails.email_otp',['data'=>$data],function($mail) use ($email){
+                        $mail->to($email,'Arus')->from("arus@floatingyoutube.com")->subject("Arus Email Verification");
+                    });
 
-                    ];
+                        $message = trans('Verification Email Sent');
 
-                    return $response;
+                        $response = [
+                                    'success' => true,
+                                    'success_message' => $message,
+                                    'data'=>$email
+                            ];
+
+                            return $response;      
+            }
+             
 
 
    }
