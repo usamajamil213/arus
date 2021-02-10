@@ -111,7 +111,7 @@ Route::get('dashboard',[
 
           ]); 
 
-          Route::post('company',[
+          Route::get('companyedit/{id}',[
                'uses' => 'Company\CompanyController@edit',
                'as' => 'admin.companyedit',
                // 'middleware'=>'can:superadmin'
