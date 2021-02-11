@@ -42,7 +42,7 @@
 
         </div>
 
-        <form class="form-group" action=" " method="POST" enctype="multipart/form-data" id="">
+        <form class="form-group" action="{{route('admin.providerupdate')}}" method="POST" enctype="multipart/form-data" id="">
 
             @csrf
 
@@ -63,6 +63,7 @@
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1"> Last Name :</label>
                             <input class="form-control"  name="l_name" type="text" required value="{{$provider->l_name}}">
+                            <input type="hidden" name="id" value="{{$provider->id}}">
                         </div>
                     </div>
 
@@ -81,13 +82,22 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Adress</label>
-                            <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress" required>{{$provider->address}}</textarea>
+                            <textarea class="form-control" id="comp_adress" name="address" rows="3" required>{{$provider->address}}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1">Aproved</label>
+                            <select class="browser-default custom-select" name="is_approve" id="state" required>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Company</label>
-                            <select class="browser-default custom-select" name="state" id="state" required>
+                            <select class="browser-default custom-select" name="company" id="state" required>
 
                             <option selected value="{{$provider->id}}">{{$provider->company->comp_name}}</option>
                             @foreach($companies as $comp)
@@ -112,7 +122,7 @@
 
             <div class="pull-left">
 
-                <button type="submit" class="btn btn-primary ">Add</button>
+                <button type="submit" class="btn btn-primary ">Update</button>
 
 
             </div>

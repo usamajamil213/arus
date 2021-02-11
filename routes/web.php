@@ -161,5 +161,9 @@ Route::get('dashboard',[
           'uses' => 'User\UsersController@provider_edit',
           'as' => 'admin.provideredit'
           ]);
+    Route::post('providers/update',[
+          'uses' => 'User\UsersController@provider_update',
+          'as' => 'admin.providerupdate'
+          ]);
 
 });
