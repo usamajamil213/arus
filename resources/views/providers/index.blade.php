@@ -63,9 +63,9 @@
 
                                             <div class="col-12 text-right">
                     
-                                                <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_provider" title="Add">
+                                                {{-- <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_provider" title="Add">
                                                     <i class="feather icon-plus"></i> Add Provider
-                                                </button>
+                                                </button> --}}
                                                     <div class="modal fade text-left" id="add_provider" data-backdrop="static">
 
 
@@ -306,6 +306,10 @@
                                                 </tfoot>
 
                                             </table>
+                                            <div class="ml-30">
+                                                {{$providers->links()}}
+                                            </div>
+                                            
 
                                         </div>
 
