@@ -125,6 +125,7 @@ class AuthController extends Controller
             $company->comp_adress=$request->address;
             $company->position=$request->position;
             $company->comp_reg_no=$request->comp_reg_no;
+            $company->department=$request->department;
             $company->save();
             $comp_id=$company->id;  
         }
