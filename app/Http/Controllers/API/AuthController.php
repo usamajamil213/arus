@@ -8,6 +8,7 @@ use App\Models\User\User;
 use App\Models\User\EmailVerification;
 use App\Models\Provider\ProviderCertificate;
 use App\Models\Provider\ProviderSkill;
+use App\Models\Company\Company;
 use Validator;
 use DB;
 use Exception;
@@ -115,12 +116,28 @@ class AuthController extends Controller
                     return $response;          
 
             }
+       
+        if($request->company_id=='0'){
+            // dd('success');
+            $company= new Company();
+            $company->comp_name=$request->comp_name;
+            $company->post_c=$request->post_code;
+            $company->comp_adress=$request->address;
+            $company->position=$request->position;
+            $company->comp_reg_no=$request->comp_reg_no;
+            $company->save();
+            $comp_id=$company->id;  
+        }
+        else{
+            $comp_id=$request->company_id;
+
+        }
 
         $user = new User();
         $user->name = $request->name;
         $user->l_name = $request->l_name;
         $user->email = $request->email;
-        $user->company_id = $request->company_id;
+        $user->company_id = $comp_id;
         $user->phone = $request->phone;
         // $user->contact = $request->contact;
          // $user->device_token = $request->device_token;
