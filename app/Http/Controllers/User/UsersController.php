@@ -38,7 +38,7 @@ class UsersController extends Controller
     $role_id = Role::where('slug','provider')->select('id')->first();
      $providers=$providers = User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
-                        })->paginate(8);
+                        })->paginate(5);
         return view('providers.index',compact('providers'));
     }
     public function provider_edit($id){

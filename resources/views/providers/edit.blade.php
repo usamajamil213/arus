@@ -82,7 +82,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Adress</label>
-                            <textarea class="form-control" id="comp_adress" name="address" rows="3" required>{{$provider->address}}</textarea>
+                            <textarea class="form-control" id="comp_adress" name="address" rows="3">{{$provider->address}}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
