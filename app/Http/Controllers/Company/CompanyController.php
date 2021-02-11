@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Company\Company;
+Use Alert;
 
 class CompanyController extends Controller
 {

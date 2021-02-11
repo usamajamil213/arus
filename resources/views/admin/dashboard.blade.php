@@ -22,7 +22,7 @@
                                             <i class="feather icon-users text-primary font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700 mt-1">122</h2>
+                                    <h2 class="text-bold-700 mt-1">{{$users}}</h2>
                                     <p class="mb-0">User</p>
                                 </div>
                                 <!--<div class="card-content">-->
@@ -41,7 +41,7 @@
                                             <i class="feather icon-users text-primary font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700 mt-1"> 1001</h2>
+                                    <h2 class="text-bold-700 mt-1">{{$companies}}</h2>
                                     <p class="mb-0">Companies </p>
                                 </div>
                                 <!--<div class="card-content">-->
@@ -57,7 +57,7 @@
                                             <i class="feather icon-credit-card text-success font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700 mt-1">122</h2>
+                                    <h2 class="text-bold-700 mt-1">{{$providers}}</h2>
                                     <p class="mb-0">Providers</p>
                                 </div>
                                 <!--<div class="card-content">-->
