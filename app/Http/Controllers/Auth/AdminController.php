@@ -11,6 +11,7 @@ use App\models\CustomUserNotifications;
 use App\Models\User\Role;
 use Auth;
 use Validator;
+use App\Models\Company\Company;
 class AdminController extends Controller
 {
         public function __construct()
@@ -19,8 +20,19 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
+        $role_id = Role::where('slug','user')->select('id')->first();
+
+            $users = User::whereHas('roles', function ($query) use($role_id) {
+                            $query->where('role_id', $role_id->id);
+                        })->count();
+            $role_id = Role::where('slug','provider')->select('id')->first();
+
+            $providers = User::whereHas('roles', function ($query) use($role_id) {
+                            $query->where('role_id', $role_id->id);
+                        })->count();
+            $companies=Company::count();
           
-            return view('admin.dashboard');
+            return view('admin.dashboard',compact('users','providers','companies'));
     }
      
     

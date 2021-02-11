@@ -228,10 +228,10 @@
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                            <a href="{{route('admin.companyedit',$company->id)}}" class="edit_com pl-1"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
-
-                                                            <a href="javascript:void(0)" class="deletebtn" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
-                                                            <i class="fa fa-trash font-danger"></i>
+                                                            <a href="{{route('admin.companyedit',$company->id)}}" class="edit_com pl-1">Edit </a>
+                                                            <br> <br>
+                                                            <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
+                                                                Delete
                                                             </a>
 
                                                             <a class="dropdown-item" href="{{route('admin.companyshow',$company->id)}}">Details</a>
@@ -239,7 +239,7 @@
                                                         </div>
                                                             
                                                             
-                                                        <!-- Edit modal -->
+                                                        {{-- Edit modal
                                                             <div class="modal fade" id="editcomp{{$company->id}}" tabindex="-1"       role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
@@ -358,7 +358,7 @@
                                                                 </div>
                                                             </div>
                                                             <!--    end Edit modal -->
-                                                        </div>
+                                                        </div> --}}
 
                                                             <!--    Delete modal -->
                                                             <div class="modal fade" id="destroyModal{{$company->id}}" tabindex="-1"   role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

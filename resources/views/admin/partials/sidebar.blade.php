@@ -39,6 +39,10 @@
                 <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
 
                 <li class=" nav-item" id="admins"><a href="{{route('admin.company')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">Company</span></a></li>
+                {{-- <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Users</span></a></li> --}}
+                
+                <li class=" navigation-header"><span>Providers</span></li>
+                <li class=" nav-item" id="admins"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Providers</span></a></li>
                 
 
                 <!-- <li class=" nav-item"><a href=""><i class="feather icon-volume-1"></i><span class="menu-title" data-i18n="Campaigns">Campaigns</span></a></li>
@@ -47,11 +51,7 @@
 
 
 
-                {{-- <li class=" navigation-header"><span>Admin</span></li>
-
-                
-
-                <li class=" nav-item" id="admins"><a href=""><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Spot Admins</span></a></li> --}}
+              
 
                 
 
