@@ -185,7 +185,7 @@ class AuthController extends Controller
                     'email' => $request->email,
                     // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
                     'password' => $request->password,
-                    'address' => $request->address,
+                    // 'address' => $request->address,
                      // 'device_token'=> $request->device_token,
                     
                 ],
@@ -194,7 +194,7 @@ class AuthController extends Controller
                     'email' => 'required|email|unique:users,email',
                     'phone' => 'required',
                     'password'  => 'required|min:6|max:25',
-                    'address'  => 'required',
+                    // 'address'  => 'required',
                 ]
             );
     
