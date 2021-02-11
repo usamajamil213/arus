@@ -46,5 +46,21 @@ class UsersController extends Controller
           $companies=Company::all();
         return view('providers.edit',compact('provider','companies'));
     }
+    public function provider_update(Request $request){
+         // dd($request->address);
+       $user=User::where('id',$request->id)->first();
+       $user->name=$request->name;
+        $user->l_name=$request->l_name;
+        $user->phone=$request->phone;
+        $user->email=$request->email;
+        $user->address=$request->address;
+        $user->is_approve=$request->is_approve;
+        // $user->password = $request->password?Hash::make($request->password):null;
+        $user->save();
+        alert()->success(' Upadted successfully');
+     return redirect()->back();
+
+
+    }
 
 }
