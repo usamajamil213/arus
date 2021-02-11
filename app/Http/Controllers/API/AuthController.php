@@ -123,9 +123,7 @@ class AuthController extends Controller
             $company->comp_name=$request->comp_name;
             $company->post_c=$request->post_code;
             $company->comp_adress=$request->address;
-            $company->position=$request->position;
             $company->comp_reg_no=$request->comp_reg_no;
-            $company->department=$request->department;
             $company->save();
             $comp_id=$company->id;  
         }
@@ -140,6 +138,9 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->company_id = $comp_id;
         $user->phone = $request->phone;
+        $user->department=$request->department;
+        $user->position=$request->position;
+
         // $user->contact = $request->contact;
          // $user->device_token = $request->device_token;
         $user->password = $request->password?Hash::make($request->password):null;
