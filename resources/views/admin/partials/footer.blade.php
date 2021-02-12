@@ -42,6 +42,38 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{asset('public/theme/app-assets/js/scripts/datatables/datatable.js')}}"></script>
    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+   <script type="text/javascript">
+
+    $.ajaxSetup({
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+
+    function getStateByRegion(event,obj) 
+{
+    // alert("hello");
+    event.preventDefault();
+    var obj = $(obj).val();
+    // alert(obj);
+    
+        
+    $.ajax({
+                type:'GET',
+                url:'{{route("admin.state")}}',
+                data:{id:obj
+                },
+                success: function( msg ) {
+                    $('#state').html(msg);
+                }
+            });
+   
+    
+}
+
+
+</script>
 </body>
 <!-- END: Body-->
 @include('vendor.sweet.alert')

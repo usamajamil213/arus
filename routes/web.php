@@ -166,4 +166,9 @@ Route::get('dashboard',[
           'as' => 'admin.providerupdate'
           ]);
 
+     Route::get('adminstate',[
+          'uses'=>'Company\CompanyController@getStatebyRegionid',
+          'as'=>'admin.state'
+          ]);
+
 });

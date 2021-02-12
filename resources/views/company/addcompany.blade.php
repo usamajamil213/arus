@@ -112,42 +112,24 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> State :</label>
-                            <select class="browser-default custom-select" name="state" id="state" required>
-
-                            <option selected value="" disabled>Select</option>
-                            <option value="East Coast">East Coast</option>
-                            <option value="Southern">Southern</option>
-                            <option value="Northern">Northern</option>
-                            <option value="Central">Central</option>
-                            <option value="Sabah">Sabah</option>
-                            <option value="Sarwak">Sarwak</option>
+                            <label for="validationCustom01" class="mb-1"> Region :</label>
+                            <select class="browser-default custom-select" onchange="getStateByRegion(event,this)" name="region" id="region" required>
+                                <option selected value="0">Select Region</option>
+                                    @foreach ($region as $item)
+                                <option value="{{ $item->id }}"->{{ $item->region}}</option>
+                                    @endforeach
                             </select>
-                            <span class="text-danger">{{ $errors->first('state') }}</span>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Region :</label>
-                            <select class="browser-default custom-select" name="region" id="region" >
-                            <option selected value="" disabled>Select Region</option>
-                            <option value="Terengganu">Terengganu</option>
-                            <option value="Pahag">Pahag</option>
-                            <option value="Kelantan">Kelantan</option>
-                            <option value="Melaka">Melaka</option>
-                            <option value="Johor">Johor</option>
-                            <option value="Penang">Penang</option>
-                            <option value="Keddah">Keddah</option>
-                            <option value="Perak">Perak</option>
-                            <option value="Perlis">Perlis</option>
-                            <option value="Selangor">Selangor</option>
-                            <option value="Kuala Lumpur">Kuala Lumpur</option>
-                            <option value="N. Semblin">N. Semblin</option>
+                            <label for="validationCustom01" class="mb-1"> State :</label>
+                            <select class="browser-default custom-select state" name="state" id="state" >
+                            <option selected value="" disabled>Select state</option>
 
                             </select>
                             
-                            <span class="text-danger">{{ $errors->first('region') }}</span>
                         </div>
                     </div>
 
