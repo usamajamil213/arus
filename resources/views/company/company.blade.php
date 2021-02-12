@@ -189,17 +189,14 @@
                                             <table class="table zero-configuration">
                                                 <thead>
                                                     <tr>
-                                                    <th>First Name</th> 
-                                                    <th>Last Name</th> 
+                                                     
                                                     <th>Company Name</th>                                
                                                     <th>Company registeration No</th>    
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
                                                     <th>Region </th>
-                                                    <th>Position</th> 
-                                                    <th>Department</th>                               
-                                                    <th>Cell No</th>                               
+                                                                                  
                                                     <th>Email</th>
                                                     <th>Action</th>
                                                     </tr>
@@ -207,17 +204,14 @@
                                                 <tbody> 
                                                     @foreach($companies as $company)
                                                   <tr>
-                                                    <td>{{$company->f_name}}</td>
-                                                    <td>{{$company->l_name}}</td>
+                                                    
                                                     <td>{{$company->comp_name}}</td>
                                                     <td>{{$company->comp_reg_no}}</td>
                                                     <td>{{$company->comp_adress}}</td>
                                                     <td>{{$company->post_c}}</td>
-                                                    <td>{{$company->state}}</td>
-                                                    <td>{{$company->region}}</td>
-                                                    <td>{{$company->position}}</td>
-                                                    <td>{{$company->department}}</td>
-                                                    <td>{{$company->cell_no}}</td>
+                                                    <td>{{$company->state->state}}</td>
+                                                    <td>{{$company->region->region}}</td>
+                                                    
                                                     <td>{{$company->email}}</td>
                                                     <td>
                                                         <div>
@@ -394,17 +388,14 @@
 
                                                 <tfoot>
                                                     <tr>
-                                                    <th>First Name</th> 
-                                                    <th>Last Name</th> 
+                                                     
                                                     <th>Company Name</th>                                
                                                     <th>Company registeration No</th>    
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
                                                     <th>Region </th>
-                                                    <th>Position</th> 
-                                                    <th>Department</th>                               
-                                                    <th>Cell No</th>                               
+                                                                                   
                                                     <th>Email</th>
                                                     <th>Action</th>
 

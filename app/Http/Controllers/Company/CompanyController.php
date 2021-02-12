@@ -12,8 +12,8 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies=Company::all();
-        // dd($companies);
+        $companies=Company::with('state','region')->paginate(8);
+        //  dd($companies);
         return view('company.company',compact('companies'));
     }
 
@@ -63,8 +63,8 @@ class CompanyController extends Controller
         $companies->comp_reg_no=$request->comp_reg_no;
         $companies->comp_adress=$request->comp_adress;
         $companies->post_c=$request->post_c;
-        $companies->state=$request->state;
-        $companies->region=$request->region;
+        $companies->state_id=$request->state;
+        $companies->region_id=$request->region;
         $companies->position=$request->position;
         $companies->department=$request->department;
         $companies->cell_no=$request->cell_no;
@@ -81,7 +81,8 @@ class CompanyController extends Controller
         // dd($id);
          $company=Company::where('id',$id)->first();
         // dd($company);
-         return view('company.edit', compact('company'));
+        $region = Region::get();
+         return view('company.edit', compact('company','region'));
 
     }
 
@@ -95,8 +96,8 @@ class CompanyController extends Controller
         $companies->comp_reg_no=$request->comp_reg_no;
         $companies->comp_adress=$request->comp_adress;
         $companies->post_c=$request->post_c;
-        $companies->state=$request->state;
-        $companies->region=$request->region;
+        $companies->state_id=$request->state;
+        $companies->region_id=$request->region;
         $companies->position=$request->position;
         $companies->department=$request->department;
         $companies->cell_no=$request->cell_no;
