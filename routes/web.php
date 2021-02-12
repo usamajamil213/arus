@@ -141,6 +141,30 @@ Route::get('dashboard',[
           'uses' => 'Company\CompanyController@show',
           'as' => 'admin.companyshow'
           ]);
+     Route::get('users',[
+          'uses' => 'User\UsersController@index',
+          'as' => 'admin.usershow'
+          ]);
+    Route::post('add-users',[
+               'uses' => 'User\UsersController@add_user',
+               'as' => 'admin.useradd'
+               ]);
+    Route::post('update-users',[
+               'uses' => 'User\UsersController@update_user',
+               'as' => 'admin.userupdate'
+               ]);
+    Route::get('providers',[
+          'uses' => 'User\UsersController@providers_show',
+          'as' => 'admin.providershow'
+          ]);
+    Route::get('providers/edit/{id}',[
+          'uses' => 'User\UsersController@provider_edit',
+          'as' => 'admin.provideredit'
+          ]);
+    Route::post('providers/update',[
+          'uses' => 'User\UsersController@provider_update',
+          'as' => 'admin.providerupdate'
+          ]);
 
      Route::get('adminstate',[
           'uses'=>'Company\CompanyController@getStatebyRegionid',
