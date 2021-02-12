@@ -61,7 +61,10 @@ class User extends Authenticatable
     {
         return $this->roles()->where('slug', $roleSlug)->count() == 1;
     }
-    public function organization(){
-        return $this->hasOne('App\models\Organization','id','org_id');
+    public function certificate(){
+        return $this->hasMany('App\Models\Provider\ProviderCertificate','provider_id','id');
+    }
+    public function company(){
+        return $this->hasone('App\Models\Company\Company','id','company_id');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Company\Region;
 use App\Models\Company\Company;
 use App\Models\Company\State;
+Use Alert;
 
 class CompanyController extends Controller
 {
