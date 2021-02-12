@@ -142,4 +142,9 @@ Route::get('dashboard',[
           'as' => 'admin.companyshow'
           ]);
 
+     Route::get('adminstate',[
+          'uses'=>'Company\CompanyController@getStatebyRegionid',
+          'as'=>'admin.state'
+          ]);
+
 });

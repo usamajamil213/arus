@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Company\Region;
 use App\Models\Company\Company;
+use App\Models\Company\State;
 
 class CompanyController extends Controller
 {
@@ -18,8 +20,39 @@ class CompanyController extends Controller
 
     public function addcompany()
     {
-        return view('company.addcompany');
+        $region = Region::get();
+        // dd($region);
+        $state = State::get();
+        return view('company.addcompany',compact('region','state'));
     }
+
+    public function getStatebyRegionid(Request $request)
+    {
+        
+        // dd($id);
+        $state=State::where('region_id',$request->id)->get();
+        // dd($sub_role);
+        $view='<option selected> Select State</option>';
+                                            
+        foreach ($state as $item)
+        {
+            $view .='<option value="'.$item->id.'">'.$item->state.'</option>';
+        }
+        return $view;
+
+    }
+
+    // $region_id = $request->id;
+         
+        // $state = Region::where('id',$region_id)
+        //                       ->with('state')
+        //                       ->get();
+        //                     //  dd('state');
+        // return response()->json([
+        //     'state' => $state
+        // ]);
+
+    
 
     public function store(Request $request)
     {
