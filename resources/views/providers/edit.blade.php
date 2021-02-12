@@ -76,18 +76,36 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Email</label>
-                            <input class="form-control"  name="email" type="text" required value="{{$provider->email}}">
+                            <input class="form-control"  name="email" type="email" required value="{{$provider->email}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Adress</label>
+                            <label for="validationCustom01" class="mb-1">Address</label>
                             <textarea class="form-control" id="comp_adress" name="address" rows="3">{{$provider->address}}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Aproved</label>
+                            <label for="validationCustom01" class="mb-1">Department</label>
+                            <input class="form-control"  name="department" type="text" required value="{{$provider->department}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1">Position</label>
+                            <input class="form-control"  name="position" type="text" required value="{{$provider->position}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1">Post Code</label>
+                            <input class="form-control"  name="post_code" type="text" required value="{{$provider->post_code}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1">Approved</label>
                             <select class="browser-default custom-select" name="is_approve" id="state" required>
                             <option value="yes">yes</option>
                             <option value="no">no</option>
@@ -96,10 +114,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Company</label>
+                            <label for="validationCustom01" class="mb-1">Company Name</label>
                             <select class="browser-default custom-select" name="company" id="state" required>
 
-                            <option selected value="{{$provider->id}}">{{$provider->company->comp_name}}</option>
+                            <option selected value="{{$provider->company->id}}">{{$provider->company->comp_name}}</option>
                             @foreach($companies as $comp)
                             <option value="{{$comp->id}}">{{$comp->comp_name}}</option>
                             @endforeach
