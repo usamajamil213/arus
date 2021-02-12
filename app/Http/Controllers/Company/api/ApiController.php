@@ -12,7 +12,7 @@ class ApiController extends Controller
     public function get_companies(){
 
   $comp=Company::select('id','comp_name','comp_adress','comp_reg_no','post_c')->get();
-  $state=State::where('id','state')->get();
+  $state=State::select('id','state')->get();
 
      $response = [
             'success' => true,
