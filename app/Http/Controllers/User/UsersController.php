@@ -47,7 +47,7 @@ class UsersController extends Controller
         return view('providers.edit',compact('provider','companies'));
     }
     public function provider_update(Request $request){
-         // dd($request->address);
+         // dd($request->position);
        $user=User::where('id',$request->id)->first();
        $user->name=$request->name;
         $user->l_name=$request->l_name;
@@ -55,9 +55,13 @@ class UsersController extends Controller
         $user->email=$request->email;
         $user->address=$request->address;
         $user->is_approve=$request->is_approve;
+        // $user->state=$request->state;
+        $user->department=$request->department;
+        $user->position=$request->position;
+        $user->post_code=$request->post_code;
         // $user->password = $request->password?Hash::make($request->password):null;
         $user->save();
-        alert()->success(' Upadted successfully');
+        alert()->success(' Updated successfully');
      return redirect()->back();
 
 

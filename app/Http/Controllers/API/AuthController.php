@@ -140,6 +140,8 @@ class AuthController extends Controller
         $user->phone = $request->phone;
         $user->department=$request->department;
         $user->position=$request->position;
+        $user->post_code=$request->post_code;
+
 
         // $user->contact = $request->contact;
          // $user->device_token = $request->device_token;
