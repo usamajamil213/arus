@@ -12,6 +12,6 @@ class Company extends Model
         return $this->hasOne('App\Models\Company\State','id','state_id');
     }
     public function region(){
-        return $this->hasOne('App\Models\Company\region','id','region_id');
+        return $this->hasOne('App\Models\Company\Region','id','region_id');
     }
 }
