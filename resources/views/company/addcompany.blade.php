@@ -63,20 +63,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> First Name :</label>
-                            <input class="form-control"  name="f_name" placeholder="Person In Charge (First Name)" type="text" required>
-                            <span class="text-danger">{{ $errors->first('f_name') }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Last Name :</label>
-                            <input class="form-control"  name="l_name" placeholder="Last Name" type="text" required>
-                            <span class="text-danger">{{ $errors->first('l_name') }}</span>
-                        </div>
-                    </div>
+                   
                     
                     <div class="col-md-6">
                         <div class="form-group">
@@ -127,7 +114,6 @@
                             <label for="validationCustom01" class="mb-1"> State :</label>
                             <select class="browser-default custom-select state" name="state" id="state" >
                             <option selected value="" disabled>Select state</option>
-
                             </select>
                             
                         </div>

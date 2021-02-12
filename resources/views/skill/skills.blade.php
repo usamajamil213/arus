@@ -146,6 +146,7 @@
                                             </tr>
                                         </tfoot>
                                 </table>
+                                <div class="align-left" style="float:right" > {{$skills->links() }} </div>
                             </div>
                         </div>
                     </div>

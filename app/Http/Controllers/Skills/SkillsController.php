@@ -10,7 +10,7 @@ class SkillsController extends Controller
 {
     public function index()
     {
-        $skills = Skill::get();
+        $skills = Skill::paginate(8);
         return view('skill.skills',compact('skills'));
     }
     public function store(Request $request)
