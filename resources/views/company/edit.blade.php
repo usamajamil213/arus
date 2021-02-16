@@ -79,7 +79,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="validationCustom01" class="mb-1"> Company Adress :</label>
+                                        <label for="validationCustom01" class="mb-1"> Company Address :</label>
                                         <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress"  required> {{$company->comp_adress}}</textarea>
                                         <span class="text-danger">{{ $errors->first('comp_adress') }}</span>
                                     </div>
@@ -96,10 +96,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="validationCustom01" class="mb-1"> Region :</label>
-                                        <select class="browser-default custom-select" onchange="getStateByRegion(event,this)" name="region" value="{{$company->region}}" id="region" required>
-                                            <option selected value="0">Select Region</option>
+                                        <select class="form-control custom-select" onchange="getStateByRegion(event,this)" name="region" id="region" required>
+                                            <option  value="">Select Region</option>
                                                 @foreach ($region as $item)
-                                            <option value="{{ $item->id }}"->{{ $item->region}}</option>
+                                                <option value="{{ $item->id }}" @if($company->region_id == $item->id) selected @endif>{{ $item->region}}</option>
                                                 @endforeach
                                         </select>
                                         <span class="text-danger">{{ $errors->first('region') }}</span>
@@ -109,8 +109,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="validationCustom01" class="mb-1"> State :</label>
-                                        <select class="browser-default custom-select state" value="{{$company->state}}" name="state" id="state" >
-                                            <option selected value="" disabled>Select state</option>
+                                        <select class="form-control custom-select state" name="state" id="state" >
+                                            <option selected value="{{$company->state_id}}" >{{$company->state->state}}</option>
                                         </select>
                                         
                                         <span class="text-danger">{{ $errors->first('state') }}</span>

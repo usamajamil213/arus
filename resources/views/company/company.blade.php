@@ -192,7 +192,7 @@
                                                      
                                                     <th>Company Name</th>                                
                                                     <th>Company registeration Number</th>    
-                                                    <th>Company Adress</th>  
+                                                    <th>Company Address</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
                                                     <th>Region </th>
