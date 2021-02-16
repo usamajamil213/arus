@@ -81,8 +81,8 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="validationCustom01" class="mb-1"> Company Registration No: </label>
-                                    <input class="form-control"  name="comp_reg_no" placeholder="Company Registration No(E.g. 1234567-w)" value="{{$company->comp_reg_no}}" type="text" readonly>
+                                    <label for="validationCustom01" class="mb-1"> Company Registration Number: </label>
+                                    <input class="form-control"  name="comp_reg_no" placeholder="Company Registration Number(E.g. 1234567-w)" value="{{$company->comp_reg_no}}" type="text" readonly>
                                     <span class="text-danger">{{ $errors->first('comp_reg_no') }}</span>
                                 </div>
                             </div>

@@ -116,8 +116,8 @@
                                                         <span class="text-danger">{{ $errors->first('comp_name') }}</span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="validationCustom01" class="mb-1"> Company Registration No: </label>
-                                                        <input class="form-control"  name="comp_reg_no" placeholder="Company Registration No(E.g. 1234567-w)" type="text">
+                                                        <label for="validationCustom01" class="mb-1"> Company Registration Number: </label>
+                                                        <input class="form-control"  name="comp_reg_no" placeholder="Company Registration Number(E.g. 1234567-w)" type="text">
                                                         <span class="text-danger">{{ $errors->first('comp_reg_no') }}</span>
                                                     </div>
                                                     <div class="form-group">
@@ -191,7 +191,7 @@
                                                     <tr>
                                                      
                                                     <th>Company Name</th>                                
-                                                    <th>Company registeration No</th>    
+                                                    <th>Company registeration Number</th>    
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
