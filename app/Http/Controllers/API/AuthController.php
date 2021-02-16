@@ -82,7 +82,7 @@ class AuthController extends Controller
                     'company_id' => $request->company_id,
                     'certificates' => $request->certificates,
                     'skill_id' => $request->skill_id,
-                    // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
+                    'state_id' => $request->state_id,
                     'password' => $request->password,
                     // 'contact' => $request->contact,
                      // 'device_token'=> $request->device_token,
@@ -95,6 +95,7 @@ class AuthController extends Controller
                     'company_id' => 'required',
                     'certificates' => 'array',
                     'skill_id' => 'required',
+                    'state_id' => 'required',
                     'password'  => 'required|min:6|max:25',
                      // 'device_token'  => 'required',
                 ]
@@ -141,6 +142,7 @@ class AuthController extends Controller
         $user->department=$request->department;
         $user->position=$request->position;
         $user->post_code=$request->post_code;
+        $user->state_id=$request->state_id;
 
 
         // $user->contact = $request->contact;
