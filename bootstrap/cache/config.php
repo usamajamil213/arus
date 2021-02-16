@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://floatingyoutube.com/arus',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:TBMcYKkZKg8itmS14ECRYgv10xkHvjdjZCa8Got9u+c=',
+    'key' => 'base64:OWHKGuSKGUYnDhgza4xfB6r5RWpAKs3yO+CfHjPD5tE=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -178,7 +178,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\arus\\storage\\framework/cache/data',
+        'path' => '/home/floatingyoutube/public_html/arus/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -255,7 +255,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'arus',
+        'database' => 'floatingyoutube_arus',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -263,11 +263,11 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'arus',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'floatingyoutube_arus',
+        'username' => 'floatingyoutube_arus',
+        'password' => 'floatingyoutube_arus',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -283,11 +283,11 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'arus',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'floatingyoutube_arus',
+        'username' => 'floatingyoutube_arus',
+        'password' => 'floatingyoutube_arus',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -298,11 +298,11 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'arus',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'floatingyoutube_arus',
+        'username' => 'floatingyoutube_arus',
+        'password' => 'floatingyoutube_arus',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -344,13 +344,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\arus\\storage\\app',
+        'root' => '/home/floatingyoutube/public_html/arus/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\arus\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => '/home/floatingyoutube/public_html/arus/storage/app/public',
+        'url' => 'http://floatingyoutube.com/arus/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -366,7 +366,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\arus\\public\\storage' => 'C:\\xampp\\htdocs\\arus\\storage\\app/public',
+      '/home/floatingyoutube/public_html/arus/public/storage' => '/home/floatingyoutube/public_html/arus/storage/app/public',
     ),
   ),
   'hashing' => 
@@ -400,13 +400,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\arus\\storage\\logs/laravel.log',
+        'path' => '/home/floatingyoutube/public_html/arus/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\arus\\storage\\logs/laravel.log',
+        'path' => '/home/floatingyoutube/public_html/arus/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -456,7 +456,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\arus\\storage\\logs/laravel.log',
+        'path' => '/home/floatingyoutube/public_html/arus/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -468,11 +468,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'mail.floatingyoutube.com',
+        'port' => '587',
+        'encryption' => 'tls',
+        'username' => 'arus@floatingyoutube.com',
+        'password' => 'arus@floatingyoutube.com',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -505,15 +505,15 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'arus@floatingyoutube.com',
+      'name' => 'Arus',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\arus\\resources\\views/vendor/mail',
+        0 => '/home/floatingyoutube/public_html/arus/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -592,7 +592,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\arus\\storage\\framework/sessions',
+    'files' => '/home/floatingyoutube/public_html/arus/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -616,9 +616,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\arus\\resources\\views',
+      0 => '/home/floatingyoutube/public_html/arus/resources/views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\arus\\storage\\framework\\views',
+    'compiled' => '/home/floatingyoutube/public_html/arus/storage/framework/views',
   ),
   'flare' => 
   array (
@@ -632,8 +632,6 @@
       'report_query_bindings' => true,
       'report_view_data' => true,
       'grouping_type' => NULL,
-      'report_logs' => true,
-      'maximum_number_of_collected_logs' => 200,
     ),
     'send_logs_as_events' => true,
   ),

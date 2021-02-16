@@ -76,15 +76,15 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Company Registration No: </label>
-                            <input class="form-control"  name="comp_reg_no" placeholder="Company Registration No(E.g. 1234567-w)" type="text" required>
+                            <label for="validationCustom01" class="mb-1"> Company Registration Number: </label>
+                            <input class="form-control"  name="comp_reg_no" placeholder="Company Registration Number(E.g. 1234567-w)" type="text" required>
                             <span class="text-danger">{{ $errors->first('comp_reg_no') }}</span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Company Adress :</label>
-                            <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress" required></textarea>
+                            <label for="validationCustom01" class="mb-1"> Company Address :</label>
+                            <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Address" required></textarea>
                             <span class="text-danger">{{ $errors->first('comp_adress') }}</span>
                         </div>
                     </div>
