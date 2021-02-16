@@ -79,7 +79,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="validationCustom01" class="mb-1"> Company Adress :</label>
+                                        <label for="validationCustom01" class="mb-1"> Company Address :</label>
                                         <textarea class="form-control" id="comp_adress" name="comp_adress" rows="3" placeholder="Company Adress"  required> {{$company->comp_adress}}</textarea>
                                         <span class="text-danger">{{ $errors->first('comp_adress') }}</span>
                                     </div>
