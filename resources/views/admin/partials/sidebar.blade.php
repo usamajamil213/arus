@@ -36,11 +36,11 @@
                    
                 <li class="nav-item" id=""><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
 
-                <li class=" navigation-header"><span>Skills</span></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
 
                 <li class=" navigation-header"><span>Company</span></li>
                 <li class=" nav-item" id="admins"><a href="{{route('admin.company')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">Company</span></a></li>
+                <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
+
                 {{-- <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Users</span></a></li> --}}
                 
                 <li class=" navigation-header"><span>Providers</span></li>
