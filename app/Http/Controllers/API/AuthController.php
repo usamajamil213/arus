@@ -203,12 +203,12 @@ class AuthController extends Controller
 
         $validator = Validator::make([
                     'name' => $request->name,
-                    'l_name' => $request->l_name,
                     'phone' => $request->phone,
                     'email' => $request->email,
-                    // 'image' =>  $request->image ? 'image|mimes:jpg,png,jpeg' : "",
+                    'company_id' => $request->company_id,
+                    'state_id' => $request->state_id,
                     'password' => $request->password,
-                    // 'address' => $request->address,
+                    // 'contact' => $request->contact,
                      // 'device_token'=> $request->device_token,
                     
                 ],
@@ -216,8 +216,10 @@ class AuthController extends Controller
                     'name' => 'required',
                     'email' => 'required|email|unique:users,email',
                     'phone' => 'required',
+                    'company_id' => 'required',
+                    'state_id' => 'required',
                     'password'  => 'required|min:6|max:25',
-                    // 'address'  => 'required',
+                     // 'device_token'  => 'required',
                 ]
             );
     
@@ -237,12 +239,34 @@ class AuthController extends Controller
                     return $response;          
 
             }
+       
+        if($request->company_id=='0'){
+            // dd('success');
+            $company= new Company();
+            $company->comp_name=$request->comp_name;
+            $company->post_c=$request->post_code;
+            $company->comp_adress=$request->address;
+            $company->comp_reg_no=$request->comp_reg_no;
+            $company->save();
+            $comp_id=$company->id;  
+        }
+        else{
+            $comp_id=$request->company_id;
+
+        }
+
         $user = new User();
         $user->name = $request->name;
         $user->l_name = $request->l_name;
         $user->email = $request->email;
-        $user->address = $request->address;
+        $user->company_id = $comp_id;
         $user->phone = $request->phone;
+        $user->department=$request->department;
+        $user->position=$request->position;
+        $user->post_code=$request->post_code;
+        $user->state_id=$request->state_id;
+
+
         // $user->contact = $request->contact;
          // $user->device_token = $request->device_token;
         $user->password = $request->password?Hash::make($request->password):null;
@@ -261,7 +285,6 @@ class AuthController extends Controller
                 'l_name' => $request->l_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
-                'address' => $request->address,
 
                 // 'password' => $request->password,
                 // 'device_token' => $request->device_token,
@@ -270,7 +293,6 @@ class AuthController extends Controller
         //print_r($response);die();
 
         return $response;
-
 
     }
     public function login(Request $request){ 
