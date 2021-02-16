@@ -122,8 +122,11 @@ class CompanyController extends Controller
     {
         // dd($id);
         $company=Company::where('id',$id)->first();
+        $region = Region::get();
+        // dd($region);
+        $state = State::get();
         // dd($company);
-        return view('company.showdetails',compact('company'));
+        return view('company.showdetails',compact('company','region','state'));
 
     }
 

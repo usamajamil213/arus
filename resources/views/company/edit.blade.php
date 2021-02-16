@@ -60,6 +60,21 @@
 
                                 <input type="hidden" id="company_id"  name="id" value ="{{$company->id}}">
                                 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1"> First Name :</label>
+                                        <input class="form-control"  name="f_name" placeholder="Person In Charge" value="{{$company->f_name}}" type="text" required>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1"> Last Name :</label>
+                                        <input class="form-control"  name="l_name" placeholder="" value="{{$company->l_name}}" type="text" required>
+                                        
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">

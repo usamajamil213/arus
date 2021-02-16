@@ -189,9 +189,10 @@
                                             <table class="table zero-configuration">
                                                 <thead>
                                                     <tr>
-                                                     
+                                                    <th>First Name</th>                                
+                                                    <th>Last Name</th>                                
                                                     <th>Company Name</th>                                
-                                                    <th>Company registeration Number</th>    
+                                                    <th>Company registration Number</th>    
                                                     <th>Company Address</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
@@ -204,7 +205,8 @@
                                                 <tbody> 
                                                     @foreach($companies as $company)
                                                   <tr>
-                                                    
+                                                    <td>{{$company->f_name}}</td>
+                                                    <td>{{$company->l_name}}</td>
                                                     <td>{{$company->comp_name}}</td>
                                                     <td>{{$company->comp_reg_no}}</td>
                                                     <td>{{$company->comp_adress}}</td>
@@ -388,14 +390,15 @@
 
                                                 <tfoot>
                                                     <tr>
-                                                     
+
+                                                    <th>First Name</th>                                
+                                                    <th>Last Name</th>
                                                     <th>Company Name</th>                                
                                                     <th>Company registeration No</th>    
                                                     <th>Company Adress</th>  
                                                     <th>PostCode</th>                 
                                                     <th>State</th> 
                                                     <th>Region </th>
-                                                                                   
                                                     <th>Email</th>
                                                     <th>Action</th>
 
