@@ -104,6 +104,30 @@
                             </div>
 
                             <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1"> Region :</label>
+                                        <select class="form-control custom-select" onchange="getStateByRegion(event,this)" name="region" id="region" readonly>
+                                            <option  value="">Select Region</option>
+                                                @foreach ($region as $item)
+                                                <option value="{{ $item->id }}" @if($company->region_id == $item->id) selected @endif>{{ $item->region}}</option>
+                                                @endforeach
+                                        </select>
+                                        <span class="text-danger">{{ $errors->first('region') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1"> State :</label>
+                                        <select class="form-control custom-select state" name="state" id="state" readonly>
+                                            <option selected value="{{$company->state_id}}" >{{$company->state->state}}</option>
+                                        </select>
+                                        
+                                        <span class="text-danger">{{ $errors->first('state') }}</span>
+                                    </div>
+                                </div>
+
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="validationCustom01" class="mb-1"> State :</label>
                                     <select class="browser-default custom-select" name="state" value="{{$company->State}}" id="state" readonly>
@@ -139,7 +163,7 @@
                                     </select>
                                     <span class="text-danger">{{ $errors->first('region') }}</span>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="form-group">

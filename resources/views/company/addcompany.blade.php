@@ -63,6 +63,21 @@
 
                 <div class="row">
 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1"> First Name :</label>
+                            <input class="form-control"  name="f_name" placeholder="Person In Charge" type="text" required>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1"> Last Name :</label>
+                            <input class="form-control"  name="l_name" placeholder="" type="text" required>
+                            
+                        </div>
+                    </div>
                    
                     
                     <div class="col-md-6">
