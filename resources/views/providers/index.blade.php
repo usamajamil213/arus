@@ -286,11 +286,11 @@
     
                                                                 <a href="{{route('admin.provideredit',$provider->id)}}" class="edit_com pl-1">Edit </a>
                                                                 <br> <br>
-                                                                <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
+                                                                {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
                                                                     Delete
-                                                                </a>
+                                                                </a> --}}
     
-                                                                <a class="dropdown-item" href="">Details</a>
+                                                                {{-- <a class="dropdown-item" href="">Details</a> --}}
                                                                 </div>
                                                             
                                        

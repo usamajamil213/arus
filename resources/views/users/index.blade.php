@@ -290,7 +290,7 @@
                                                                     Delete
                                                                 </a> --}}
     
-                                                                <a class="dropdown-item" href="">Details</a>
+                                                                {{-- <a class="dropdown-item" href="">Details</a> --}}
                                                                 </div>
                                                         </td>
 

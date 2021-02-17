@@ -226,9 +226,9 @@
 
                                                             <a href="{{route('admin.companyedit',$company->id)}}" class="edit_com pl-1">Edit </a>
                                                             <br> <br>
-                                                            <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
+                                                            {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
                                                                 Delete
-                                                            </a>
+                                                            </a> --}}
 
                                                             <a class="dropdown-item" href="{{route('admin.companyshow',$company->id)}}">Details</a>
                                                             </div>
