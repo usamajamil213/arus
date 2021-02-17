@@ -260,6 +260,7 @@
 													<tr>
 														<th>Name</th> 
 														<th>Email</th> 
+														<th>Company Name</th>
 														<th>Phone</th>
                                                          <th>Position</th>
                                                         <th>Department</th>
@@ -272,6 +273,7 @@
 													<tr>
 														<td>{{$user->name}}</td>
 														<td>{{$user->email}}</td>
+														<td>{{$user->company->comp_name}}</td>
 														<td>{{$user->phone}}</td>
                                                         <td>{{$user->position}}</td>
                                                         <td>{{$user->department}}</td>
