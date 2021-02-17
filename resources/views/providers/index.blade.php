@@ -260,7 +260,10 @@
                                                     <tr>
                                                         <th>Name</th> 
                                                         <th>Email</th> 
-                                                        <th>Phone</th>                                
+                                                        <th>Phone</th>
+                                                        <th>Position</th>
+                                                        <th>Department</th>
+                                                        <th>Post Code</th>                                
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -270,6 +273,9 @@
                                                         <td>{{$provider->name}}</td>
                                                         <td>{{$provider->email}}</td>
                                                         <td>{{$provider->phone}}</td>
+                                                        <td>{{$provider->position}}</td>
+                                                        <td>{{$provider->department}}</td>
+                                                        <td>{{$provider->post_code}}</td>
                                                         <td>
                                                             <div class="dropdown">
 
@@ -296,14 +302,7 @@
 
                                                 </tbody>
 
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Name</th> 
-                                                        <th>Email</th> 
-                                                        <th>Phone</th>                                
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </tfoot>
+                                                
 
                                             </table>
                                             <div class="ml-30">

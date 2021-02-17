@@ -13,22 +13,25 @@
                 <section id="dashboard-ecommerce">
                     <div class="row">
 
-
                         <div class="col-lg-4 col-sm-6 col-12">
+
+                            <a href="{{route('admin.usershow')}}" target="_blank">
                             <div class="card">
                                 <div class="card-header d-flex flex-column align-items-start pb-2">
                                     <div class="avatar bg-rgba-primary p-50 m-0">
                                         <div class="avatar-content">
-                                            <i class="feather icon-users text-primary font-medium-5"></i>
+                                            <a href="{{route('admin.usershow')}}"><i class="feather icon-users text-primary font-medium-5"></i></a>
+                                            
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">{{$users}}</h2>
-                                    <p class="mb-0">User</p>
+                                    <p class="mb-0">Users</p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-1"></div>-->
                                 <!--</div>-->
                             </div>
+                            </a>
                         </div>
 
 
@@ -38,7 +41,7 @@
                                 <div class="card-header d-flex flex-column align-items-start pb-2">
                                     <div class="avatar bg-rgba-primary p-50 m-0">
                                         <div class="avatar-content">
-                                            <i class="feather icon-users text-primary font-medium-5"></i>
+                                           <a href="{{route('admin.company')}}"><i class="feather icon-users text-primary font-medium-5"></i></a>
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">{{$companies}}</h2>
@@ -54,7 +57,7 @@
                                 <div class="card-header d-flex flex-column align-items-start pb-2">
                                     <div class="avatar bg-rgba-success p-50 m-0">
                                         <div class="avatar-content">
-                                            <i class="feather icon-credit-card text-success font-medium-5"></i>
+                                            <a href="{{route('admin.providershow')}}"><i class="feather icon-users text-primary font-medium-5"></i></a>
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">{{$providers}}</h2>
