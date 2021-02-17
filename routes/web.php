@@ -166,6 +166,14 @@ Route::get('dashboard',[
           'uses' => 'User\UsersController@provider_update',
           'as' => 'admin.providerupdate'
           ]);
+    Route::get('user/edit/{id}',[
+          'uses' => 'User\UsersController@user_edit',
+          'as' => 'admin.useredit'
+          ]);
+    Route::post('user/update',[
+          'uses' => 'User\UsersController@user_update',
+          'as' => 'admin.userupdate'
+          ]);
 
      Route::get('adminstate',[
           'uses'=>'Company\CompanyController@getStatebyRegionid',

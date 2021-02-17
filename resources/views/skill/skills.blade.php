@@ -57,7 +57,7 @@
                                     <thead class="bg-primary text-white">
                                     <tr>
                                         <th>ID</th> 
-                                        <th>SKills Type</th> 
+                                        <th>Skills Type</th> 
                                         <th>Action</th>
                                     </tr>
                                     </thead>

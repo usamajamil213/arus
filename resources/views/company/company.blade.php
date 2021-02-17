@@ -388,23 +388,7 @@
 
                                                 </tbody>
 
-                                                <tfoot>
-                                                    <tr>
-
-                                                    <th>First Name</th>                                
-                                                    <th>Last Name</th>
-                                                    <th>Company Name</th>                                
-                                                    <th>Company registeration No</th>    
-                                                    <th>Company Adress</th>  
-                                                    <th>PostCode</th>                 
-                                                    <th>State</th> 
-                                                    <th>Region </th>
-                                                    <th>Email</th>
-                                                    <th>Action</th>
-
-                                                    </tr>
-
-                                                </tfoot>
+                                                
 
                                             </table>
 

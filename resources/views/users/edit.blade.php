@@ -42,7 +42,7 @@
 
         </div>
 
-        <form class="form-group" action="{{route('admin.providerupdate')}}" method="POST" enctype="multipart/form-data" id="">
+        <form class="form-group" action="{{route('admin.userupdate')}}" method="POST" enctype="multipart/form-data" id="">
 
             @csrf
 
@@ -56,51 +56,51 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1"> First Name:</label>
-                            <input class="form-control"  name="name"type="text" required value="{{$provider->name}}">
+                            <input class="form-control"  name="name"type="text" required value="{{$user->name}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1"> Last Name :</label>
-                            <input class="form-control"  name="l_name" type="text" required value="{{$provider->l_name}}">
-                            <input type="hidden" name="id" value="{{$provider->id}}">
+                            <input class="form-control"  name="l_name" type="text" required value="{{$user->l_name}}">
+                            <input type="hidden" name="id" value="{{$user->id}}">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1"> Phone No </label>
-                            <input class="form-control"  name="phone" type="text" required value="{{$provider->phone}}">
+                            <input class="form-control"  name="phone" type="text" required value="{{$user->phone}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Email</label>
-                            <input class="form-control"  name="email" type="email" required value="{{$provider->email}}">
+                            <input class="form-control"  name="email" type="email" required value="{{$user->email}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Address</label>
-                            <textarea class="form-control" id="comp_adress" name="address" rows="3">{{$provider->address}}</textarea>
+                            <textarea class="form-control" id="comp_adress" name="address" rows="3">{{$user->address}}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Department</label>
-                            <input class="form-control"  name="department" type="text" required value="{{$provider->department}}">
+                            <input class="form-control"  name="department" type="text" required value="{{$user->department}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Position</label>
-                            <input class="form-control"  name="position" type="text" required value="{{$provider->position}}">
+                            <input class="form-control"  name="position" type="text" required value="{{$user->position}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Post Code</label>
-                            <input class="form-control"  name="post_code" type="text" required value="{{$provider->post_code}}">
+                            <input class="form-control"  name="post_code" type="text" required value="{{$user->post_code}}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -112,28 +112,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Company Name</label>
-                            <select class="browser-default custom-select" name="company" id="state" required>
-
-                            <option selected value="{{$provider->company->id}}">{{$provider->company->comp_name}}</option>
-                            @foreach($companies as $comp)
-                            <option value="{{$comp->id}}">{{$comp->comp_name}}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    @foreach($provider->certificate as $p)
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Certificate</label>
-                            <br>
-                            <img src="{{asset('public/images/user_certificates/'.$p->certicate_image)}}" class="img-fluid">
-                        </div>
-                    </div>
-                    @endforeach
-                                
+                                           
                 </div>
 
             </div>
