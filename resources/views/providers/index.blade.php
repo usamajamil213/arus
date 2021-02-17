@@ -260,10 +260,11 @@
                                                     <tr>
                                                         <th>Name</th> 
                                                         <th>Email</th> 
+                                                        <th>Company Name</th>
                                                         <th>Phone</th>
                                                         <th>Position</th>
                                                         <th>Department</th>
-                                                        <th>Post Code</th>                                
+                                                        <th>Postcode</th>                                
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -272,6 +273,7 @@
                                                     <tr>
                                                         <td>{{$provider->name}}</td>
                                                         <td>{{$provider->email}}</td>
+                                                        <td>{{$provider->company->comp_name}}</td>
                                                         <td>{{$provider->phone}}</td>
                                                         <td>{{$provider->position}}</td>
                                                         <td>{{$provider->department}}</td>

@@ -17,7 +17,7 @@ class UsersController extends Controller
         $role_id = Role::where('slug','user')->select('id')->first();
      $users= User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
-                        })->paginate(5);
+                        })->with('company')->paginate(5);
         return view('users.index',compact('users'));
     }
     public function add_user(Request $request){
@@ -41,7 +41,7 @@ class UsersController extends Controller
     $role_id = Role::where('slug','provider')->select('id')->first();
      $providers=$providers = User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
-                        })->paginate(5);
+                        })->with('company')->paginate(5);
         return view('providers.index',compact('providers'));
     }
     public function provider_edit($id){
