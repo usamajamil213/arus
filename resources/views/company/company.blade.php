@@ -226,9 +226,9 @@
 
                                                             <a href="{{route('admin.companyedit',$company->id)}}" class="edit_com pl-1">Edit </a>
                                                             <br> <br>
-                                                            <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
+                                                            {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id ="{{$company->id}}" data-toggle="modal" data-target="#destroyModal{{$company->id}}">
                                                                 Delete
-                                                            </a>
+                                                            </a> --}}
 
                                                             <a class="dropdown-item" href="{{route('admin.companyshow',$company->id)}}">Details</a>
                                                             </div>
@@ -388,23 +388,7 @@
 
                                                 </tbody>
 
-                                                <tfoot>
-                                                    <tr>
-
-                                                    <th>First Name</th>                                
-                                                    <th>Last Name</th>
-                                                    <th>Company Name</th>                                
-                                                    <th>Company registeration No</th>    
-                                                    <th>Company Adress</th>  
-                                                    <th>PostCode</th>                 
-                                                    <th>State</th> 
-                                                    <th>Region </th>
-                                                    <th>Email</th>
-                                                    <th>Action</th>
-
-                                                    </tr>
-
-                                                </tfoot>
+                                                
 
                                             </table>
 

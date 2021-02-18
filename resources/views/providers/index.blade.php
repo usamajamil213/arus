@@ -260,7 +260,11 @@
                                                     <tr>
                                                         <th>Name</th> 
                                                         <th>Email</th> 
-                                                        <th>Phone</th>                                
+                                                        <th>Company Name</th>
+                                                        <th>Phone</th>
+                                                        <th>Position</th>
+                                                        <th>Department</th>
+                                                        <th>Postcode</th>                                
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -269,7 +273,11 @@
                                                     <tr>
                                                         <td>{{$provider->name}}</td>
                                                         <td>{{$provider->email}}</td>
+                                                        <td>{{$provider->company->comp_name}}</td>
                                                         <td>{{$provider->phone}}</td>
+                                                        <td>{{$provider->position}}</td>
+                                                        <td>{{$provider->department}}</td>
+                                                        <td>{{$provider->post_code}}</td>
                                                         <td>
                                                             <div class="dropdown">
 
@@ -280,11 +288,11 @@
     
                                                                 <a href="{{route('admin.provideredit',$provider->id)}}" class="edit_com pl-1">Edit </a>
                                                                 <br> <br>
-                                                                <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
+                                                                {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
                                                                     Delete
-                                                                </a>
+                                                                </a> --}}
     
-                                                                <a class="dropdown-item" href="">Details</a>
+                                                                {{-- <a class="dropdown-item" href="">Details</a> --}}
                                                                 </div>
                                                             
                                        
@@ -296,14 +304,7 @@
 
                                                 </tbody>
 
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Name</th> 
-                                                        <th>Email</th> 
-                                                        <th>Phone</th>                                
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </tfoot>
+                                                
 
                                             </table>
                                             <div class="ml-30">

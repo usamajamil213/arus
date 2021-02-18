@@ -63,9 +63,9 @@
 
 											<div class="col-12 text-right">
 					
-												<button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_user" title="Add">
+												{{-- <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_user" title="Add">
 													<i class="feather icon-plus"></i> Add User
-												</button>
+												</button> --}}
 													<div class="modal fade text-left" id="add_user" data-backdrop="static">
 
 
@@ -260,7 +260,11 @@
 													<tr>
 														<th>Name</th> 
 														<th>Email</th> 
-														<th>Phone</th>                                
+														<th>Company Name</th>
+														<th>Phone</th>
+                                                         <th>Position</th>
+                                                        <th>Department</th>
+                                                        <th>Post Code</th>                         
 														<th>Action</th>
 													</tr>
 												</thead>
@@ -269,168 +273,27 @@
 													<tr>
 														<td>{{$user->name}}</td>
 														<td>{{$user->email}}</td>
+														<td>{{$user->company->comp_name}}</td>
 														<td>{{$user->phone}}</td>
+                                                        <td>{{$user->position}}</td>
+                                                        <td>{{$user->department}}</td>
+                                                        <td>{{$user->post_code}}</td>
 														<td>
-
-                                                            <!-- <button type="button" class="btn btn-icon btn-secondary btn-sm waves-effect waves-light" title="View">-->
-
-                                                            <!--    <i class="feather icon-eye"></i>-->
-
-                                                            <!--</button>-->
-
-                                                            <button type="button" class="btn btn-icon btn-primary btn-sm waves-effect waves-light" title="Edit"data-toggle="modal" data-target="#edit_user">
-
-                                                                <i class="feather icon-edit"></i>
-
-                                                            </button>
-
-                                                            <button type="button" class="btn btn-icon btn-danger btn-sm waves-effect waves-light" title="Delete" data-toggle="modal" data-target="#delete_user">
-
-                                                                <i class="feather icon-trash"></i>
-
-                                                            </button>
-
-                                                             <div class="modal fade text-left" id="edit_user" data-backdrop="static">
-
-                                                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-
-                                    <div class="modal-content div mt-2 px-2 d-flex new-data-title justify-content-around">
-
-                                        <form class="form-group" action="" method="POST" enctype="multipart/form-data">
-
-                                            @csrf
-
-                                            <div class="modal-header">
-
-                                                <h4 class="modal-title">Update User</h4>
-
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-                                                    <span aria-hidden="true">x</span>
-
-                                                </button>
-
-                                            </div>
-
-                                            <div class="modal-body">
-
-                                                <div class="data-items pb-3">
-
-                                                    <div class="data-fields px-2 mt-12">
-
-                                                        <div class="row col-12">
-
-                                                            <div class="col-sm-6 data-field">
-
-                                                                <label for="cat_name">First Name</label>
-
-                                                                <input name="name" type="text" class="form-control" id="name" value="{{$user->name}}" required>
-
-															</div>
-															<div class="col-sm-6 data-field">
-
-                                                                <label for="cat_name">Last Name</label>
-
-                                                                <input name="l_name" type="text" class="form-control" id="name" value="{{$user->l_name}}" required>
-
-                                                            </div>
-
-                                                            <!--<div class="col-sm-6 data-field">-->
-
-                                                            <!--    <label for="platform_fee_percent">user Location</label>-->
-
-                                                            <!--</div>-->
-
-                                                            <div class="col-sm-6 data-field">
-
-                                                                <label for="platform_fee_percent">Email</label>
-
-																<input name="email" type="email" class="form-control" id="" value="{{$user->email}}" required>
-
-                                                            </div>
-
-                                                             <div class="col-sm-6 data-field">
-
-                                                                <label for="platform_fee_percent">Phone</label>
-
-                                                                <input class="form-control" type="text" id="rmail"  required name="phone" value=" ">
-
-															</div>
-															<div class="col-sm-6 data-field">
-
-                                                                <label for="platform_fee_percent">Address</label>
-
-                                                                <textarea class="form-control" aria-label="With textarea"></textarea>
-
-															</div>
-															<div class="col-sm-6 data-field">
-
-                                                                <label for="platform_fee_percent">Password</label>
-
-                                                                <input class="form-control" type="password"   required name="password" value=" ">
-
-															</div>
-
-
-                                                    
-
-        
-
-                                                        </div>
-
-                                                        <input type="hidden" name="user_id" value=" ">
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="modal-footer">
-
-                                                <button type="submit" class="btn btn-primary">update</button>
-
-                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-
-                                            </div>
-
-                                       </form> 
-
-                                   </div>
-
-                              </div>
-
-                              </div> 
-                               <div class="modal fade text-left" id="delete_user" data-backdrop="static">
-                                <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable modal-lg" role="document">
-                                    <div class="modal-content div mt-2 px-2 d-flex new-data-title justify-content-around">
-                                        <form class="form-group" action="" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Delete: </h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">x</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="data-items pb-3">
-                                                        <div class="row">
-                                                            <input type="hidden" name="id" value=" ">
-                                                             <h4>Are You Sure?</h4>   
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Yes</button>
-                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </form>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div>
-
-                        
-
+                                                            <div class="dropdown">
+
+                                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    
+                                                                <a href="{{route('admin.useredit',$user->id)}}" class="edit_com pl-1">Edit </a>
+                                    
+                                                                {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
+                                                                    Delete
+                                                                </a> --}}
+    
+                                                                {{-- <a class="dropdown-item" href="">Details</a> --}}
+                                                                </div>
                                                         </td>
 
 													</tr>
@@ -439,17 +302,10 @@
 
 												</tbody>
 
-												<tfoot>
-													<tr>
-														<th>Name</th> 
-														<th>Email</th> 
-														<th>Phone</th>                                
-														<th>Action</th>
-													</tr>
-												</tfoot>
+												
 
 											</table>
-
+                                            {{$users->links()}}
 										</div>
 
 									</div>
