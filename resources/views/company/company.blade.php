@@ -194,7 +194,7 @@
                                                     <th>Company Name</th>                                
                                                     <th>Company registration Number</th>    
                                                     <th>Company Address</th>  
-                                                    <th>PostCode</th>                 
+                                                    <th>Postcode</th>                 
                                                     <th>State</th> 
                                                     <th>Region </th>
                                                                                   

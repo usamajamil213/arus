@@ -264,7 +264,7 @@
 														<th>Phone</th>
                                                          <th>Position</th>
                                                         <th>Department</th>
-                                                        <th>Post Code</th>                         
+                                                        <th>Postcode</th>                         
 														<th>Action</th>
 													</tr>
 												</thead>
