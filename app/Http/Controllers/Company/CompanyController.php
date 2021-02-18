@@ -57,6 +57,12 @@ class CompanyController extends Controller
 
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+
+            'post_c'=> 'max:5 | min:5',
+           ]);
+           
         $companies= new Company;
         $companies->f_name=$request->f_name;
         $companies->l_name=$request->l_name;
@@ -74,6 +80,8 @@ class CompanyController extends Controller
         $companies->save();
         return redirect('/admin/company');
         // return redirect()->back();
+
+       
     }
 
     

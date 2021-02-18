@@ -67,4 +67,8 @@ class User extends Authenticatable
     public function company(){
         return $this->hasone('App\Models\Company\Company','id','company_id');
     }
+
+    public function skill(){
+        return $this->hasone('App\Models\Provider\ProviderSkill','id','');
+    }
 }
