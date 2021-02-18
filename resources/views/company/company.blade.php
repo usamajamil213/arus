@@ -212,7 +212,7 @@
                                                     <td>{{$company->comp_adress}}</td>
                                                     <td>{{$company->post_c}}</td>
                                                     <td>{{$company->state->state}}</td>
-                                                    <td>{{$company->region->region}}</td>
+                                                    <td>@if(isset($company->region->region))@endif</td>
                                                     
                                                     <td>{{$company->email}}</td>
                                                     <td>
