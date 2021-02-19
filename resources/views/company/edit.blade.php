@@ -86,7 +86,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="validationCustom01" class="mb-1"> Company Registration No: </label>
+                                        <label for="validationCustom01" class="mb-1"> Company Registration Number: </label>
                                         <input class="form-control"  name="comp_reg_no" placeholder="Company Registration No(E.g. 1234567-w)" value="{{$company->comp_reg_no}}" type="text" required>
                                         <span class="text-danger">{{ $errors->first('comp_reg_no') }}</span>
                                     </div>
@@ -102,7 +102,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="validationCustom01" class="mb-1"> Post Code :</label>
+                                        <label for="validationCustom01" class="mb-1"> Postcode :</label>
                                         <input class="form-control"  name="post_c" placeholder="Post Code" value="{{$company->post_c}}" type="text" required>
                                         <span class="text-danger">{{ $errors->first('post_c') }}</span>
                                     </div>
@@ -151,7 +151,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="validationCustom01" class="mb-1"> Phone No :</label>
+                                        <label for="validationCustom01" class="mb-1"> Phone Number :</label>
                                         <input class="form-control"  name="cell_no" placeholder="10-000000" value="{{$company->cell_no}}" type="number" required>
                                         <span class="text-danger">{{ $errors->first('cell_no') }}</span>
                                     </div>

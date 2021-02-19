@@ -55,13 +55,13 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> First Name:</label>
+                            <label for="validationCustom01" class="mb-1"> First Name</label>
                             <input class="form-control"  name="name"type="text" required value="{{$provider->name}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Last Name :</label>
+                            <label for="validationCustom01" class="mb-1"> Last Name</label>
                             <input class="form-control"  name="l_name" type="text" required value="{{$provider->l_name}}">
                             <input type="hidden" name="id" value="{{$provider->id}}">
                         </div>
@@ -69,7 +69,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1"> Phone No </label>
+                            <label for="validationCustom01" class="mb-1"> Phone Number </label>
                             <input class="form-control"  name="phone" type="text" required value="{{$provider->phone}}">
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="validationCustom01" class="mb-1">Post Code</label>
+                            <label for="validationCustom01" class="mb-1">Postcode</label>
                             <input class="form-control"  name="post_code" type="text" required value="{{$provider->post_code}}">
                         </div>
                     </div>

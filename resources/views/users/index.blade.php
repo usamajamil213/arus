@@ -261,10 +261,10 @@
 														<th>Name</th> 
 														<th>Email</th> 
 														<th>Company Name</th>
-														<th>Phone</th>
+														<th>Phone Number</th>
                                                          <th>Position</th>
                                                         <th>Department</th>
-                                                        <th>Post Code</th>                         
+                                                        <th>Postcode</th>                         
 														<th>Action</th>
 													</tr>
 												</thead>
