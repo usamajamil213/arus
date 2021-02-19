@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User\User;
 use App\Models\Company\Company;
+use App\Models\Company\State;
+use App\Models\Company\Region;
 use App\Models\User\Role;
 Use Alert;
 use Illuminate\Support\Facades\Hash;
@@ -18,8 +20,8 @@ class UsersController extends Controller
         $role_id = Role::where('slug','user')->select('id')->first();
      $users= User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
-                        })->with('company')->paginate(5);
-     
+                        })->with('company','state','state.region')->paginate(5);
+         // dd($users);
         return view('users.index',compact('users'));
     }
     public function add_user(Request $request){
@@ -43,13 +45,15 @@ class UsersController extends Controller
     $role_id = Role::where('slug','provider')->select('id')->first();
      $providers=$providers = User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
-                        })->with('company')->paginate(5);
+                        })->with('company','state','state.region')->paginate(5);
         return view('providers.index',compact('providers'));
     }
     public function provider_edit($id){
-        $provider=User::with('certificate','company')->where('id',$id)->first();
+        $provider=User::with('certificate','company','state','state.region')->where('id',$id)->first();
           $companies=Company::all();
-        return view('providers.edit',compact('provider','companies'));
+          $states=State::all();
+          $regions=Region::all();
+        return view('providers.edit',compact('provider','companies','states','regions'));
     }
     public function provider_update(Request $request){
          // dd($request->position);
@@ -72,8 +76,10 @@ class UsersController extends Controller
 
     }
     public function user_edit($id){
-          $user=User::where('id',$id)->first();
-          return view('users.edit',compact('user'));
+          $user=User::with('state','state.region')->where('id',$id)->first();
+          $states=State::all();
+          $regions=Region::all();
+          return view('users.edit',compact('user','states','regions'));
     }
     public function user_update(Request $request){
     
@@ -88,6 +94,7 @@ class UsersController extends Controller
         $user->department=$request->department;
         $user->position=$request->position;
         $user->post_code=$request->post_code;
+        $user->state_id=$request->state;
         // $user->password = $request->password?Hash::make($request->password):null;
         $user->save();
         alert()->success('user updated successfully');
