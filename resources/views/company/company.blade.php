@@ -192,7 +192,7 @@
                                                     <th>First Name</th>                                
                                                     <th>Last Name</th>                                
                                                     <th>Company Name</th>                                
-                                                    <th>Company registration Number</th>    
+                                                    <th>Company Registration Number</th>    
                                                     <th>Company Address</th>  
                                                     <th>Postcode</th>                 
                                                     <th>State</th> 

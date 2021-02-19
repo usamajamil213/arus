@@ -97,7 +97,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="validationCustom01" class="mb-1"> Post Code :</label>
+                                    <label for="validationCustom01" class="mb-1"> Postcode :</label>
                                     <input class="form-control"  name="post_c" placeholder="Post Code" value="{{$company->post_c}}" type="text" readonly>
                                     <span class="text-danger">{{ $errors->first('post_c') }}</span>
                                 </div>

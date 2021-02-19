@@ -261,7 +261,7 @@
 														<th>Name</th> 
 														<th>Email</th> 
 														<th>Company Name</th>
-														<th>Phone</th>
+														<th>Phone Number</th>
                                                          <th>Position</th>
                                                         <th>Department</th>
                                                         <th>Postcode</th>                         
