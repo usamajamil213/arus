@@ -14,10 +14,12 @@ use DB;
 class UsersController extends Controller
 {
     public function index(){
+
         $role_id = Role::where('slug','user')->select('id')->first();
      $users= User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
                         })->with('company')->paginate(5);
+     
         return view('users.index',compact('users'));
     }
     public function add_user(Request $request){

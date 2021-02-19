@@ -273,7 +273,7 @@
 													<tr>
 														<td>{{$user->name}}</td>
 														<td>{{$user->email}}</td>
-														<td>@if(isset($user->company->comp_name))@endif</td>
+														<td>{{$user->company->comp_name}}</td>
 														<td>{{$user->phone}}</td>
                                                         <td>{{$user->position}}</td>
                                                         <td>{{$user->department}}</td>
