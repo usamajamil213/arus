@@ -106,9 +106,31 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="validationCustom01" class="mb-1">Approved</label>
-                            <select class="browser-default custom-select" name="is_approve" id="state" required>
+                            <select class="browser-default custom-select" name="is_approve" id="approve" required>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1"> Region</label>
+                            <select class="form-control custom-select" onchange="getStateByRegion(event,this)" name="region" id="region" required>
+                                    @foreach ($regions as $item)
+                                    <option value="{{ $item->id }}" @if($provider->state->region->id == $item->id) selected @endif>{{ $item->region}}</option>
+                                    @endforeach
+                            </select>
+                            <span class="text-danger">{{ $errors->first('region') }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validationCustom01" class="mb-1">State</label>
+                            <select class="browser-default custom-select" name="state" id="state" required>
+                                @foreach($states as $item)
+                                <option value="{{$item->id}}" @if($provider->state_id == $item->id) selected @endif>{{$item->state}}</option>
+                                @endforeach
+            
                             </select>
                         </div>
                     </div>

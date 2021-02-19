@@ -264,7 +264,9 @@
 														<th>Phone Number</th>
                                                          <th>Position</th>
                                                         <th>Department</th>
-                                                        <th>Postcode</th>                         
+                                                        <th>Postcode</th>
+														<th>State</th> 
+														<th>Region</th>                        
 														<th>Action</th>
 													</tr>
 												</thead>
@@ -277,6 +279,8 @@
 														<td>{{$user->phone}}</td>
                                                         <td>{{$user->position}}</td>
                                                         <td>{{$user->department}}</td>
+														<td>{{$user->state->state}}</td>
+														<td>{{$user->state->region->region}}</td>
                                                         <td>{{$user->post_code}}</td>
 														<td>
                                                             <div class="dropdown">
