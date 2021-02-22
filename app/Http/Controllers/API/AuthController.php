@@ -245,7 +245,7 @@ class AuthController extends Controller
                     return $response;          
 
             }
-          $reg_id=State::select('region_id')->where('state_id',$request->state_id)->first();
+          $reg_id=State::select('region_id')->where('id',$request->state_id)->first();
         if($request->company_id=='0'){
             dd('success');
             $company= new Company();
