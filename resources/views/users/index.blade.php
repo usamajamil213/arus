@@ -279,9 +279,11 @@
 														<td>{{$user->phone}}</td>
                                                         <td>{{$user->position}}</td>
                                                         <td>{{$user->department}}</td>
+											
+														<td>{{$user->post_code}}</td>
 														<td>{{$user->state->state}}</td>
 														<td>{{$user->state->region->region}}</td>
-                                                        <td>{{$user->post_code}}</td>
+                    
 														<td>
                                                             <div class="dropdown">
 
