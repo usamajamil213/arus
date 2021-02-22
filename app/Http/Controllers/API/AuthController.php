@@ -247,7 +247,7 @@ class AuthController extends Controller
             }
           $reg_id=State::select('region_id')->where('id',$request->state_id)->first();
         if($request->company_id=='0'){
-            dd('success');
+            // dd('success');
             $company= new Company();
             $company->comp_name=$request->comp_name;
             $company->post_c=$request->post_code;
