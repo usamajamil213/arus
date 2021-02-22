@@ -107,7 +107,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="post_c" class="mb-1"> Postcode :</label>
-                            <input class="form-control"  name="post_c" placeholder="Post Code" type="number" required maxlength="5">
+                            <input class="form-control"  name="post_c" placeholder="Postcode" type="number" required maxlength="5">
                             <span class="text-danger">{{ $errors->first('post_c') }}</span>
                         </div>
                     </div>
