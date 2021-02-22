@@ -211,8 +211,8 @@
                                                     <td>{{$company->comp_reg_no}}</td>
                                                     <td>{{$company->comp_adress}}</td>
                                                     <td>{{$company->post_c}}</td>
-                                                    <td>@if(isset($company->state->state))@endif</td>
-                                                    <td>@if(isset($company->region->region))@endif</td>
+                                                    <td>{{$company->state->state}}</td>
+                                                    <td>{{$company->region->region}}</td>
                                                     
                                                     <td>{{$company->email}}</td>
                                                     <td>
