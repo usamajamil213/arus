@@ -58,6 +58,7 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
         $this->validate($request,[
 
             'post_c'=> 'max:5 | min:5',
@@ -74,9 +75,10 @@ class CompanyController extends Controller
         $companies->region_id=$request->region;
         $companies->position=$request->position;
         $companies->department=$request->department;
+        $companies->added_by=$request->added_by;
         $companies->cell_no=$request->cell_no;
         $companies->email=$request->email;
-        $companies->password=$request->password;
+        // $companies->password=$request->password;
         $companies->save();
         return redirect('/admin/company');
         // return redirect()->back();
@@ -109,9 +111,10 @@ class CompanyController extends Controller
         $companies->region_id=$request->region;
         $companies->position=$request->position;
         $companies->department=$request->department;
+        $companies->added_by=$request->added_by;
         $companies->cell_no=$request->cell_no;
         $companies->email=$request->email;
-        $companies->password=$request->password;
+        // $companies->password=$request->password;
         $companies->save();
         // return redirect()->back();
         return redirect('/admin/company');
