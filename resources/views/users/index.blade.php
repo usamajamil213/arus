@@ -258,15 +258,11 @@
 											<table class="table zero-configuration">
 												<thead>
 													<tr>
-														<th>Name</th> 
-														<th>Email</th> 
+													   <th>First Name</th> 
+													   <th>Last Name</th>
 														<th>Company Name</th>
-														<th>Phone Number</th>
-                                                         <th>Position</th>
-                                                        <th>Department</th>
-                                                        <th>Postcode</th>
-														<th>State</th> 
-														<th>Region</th>                        
+														<th>Email</th>
+														<th>State</th>                         
 														<th>Action</th>
 													</tr>
 												</thead>
@@ -274,15 +270,11 @@
 													@foreach($users as $user)
 													<tr>
 														<td>{{$user->name}}</td>
-														<td>{{$user->email}}</td>
+														<td>{{$user->l_name}}</td>
 														<td>{{$user->company->comp_name}}</td>
-														<td>{{$user->phone}}</td>
-                                                        <td>{{$user->position}}</td>
-                                                        <td>{{$user->department}}</td>
-											
-														<td>{{$user->post_code}}</td>
+														<td>{{$user->email}}</td>
 														<td>{{$user->state->state}}</td>
-														<td>{{$user->state->region->region}}</td>
+										
                     
 														<td>
                                                             <div class="dropdown">

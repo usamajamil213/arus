@@ -16,7 +16,7 @@
 
                     <div class="col-12">
 
-                        <h2 class="content-header-title float-left mb-0">Providers</h2>
+                        <h2 class="content-header-title float-left mb-0">Skill Category</h2>
 
                         <div class="breadcrumb-wrapper col-12">
 
@@ -26,7 +26,7 @@
 
                                 </li>
 
-                                <li class="breadcrumb-item active">Providers
+                                <li class="breadcrumb-item active">Skill Category
 
                                 </li>
 
@@ -63,14 +63,14 @@
 
                                             <div class="col-12 text-right">
                     
-                                                {{-- <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_provider" title="Add">
-                                                    <i class="feather icon-plus"></i> Add Provider
-                                                </button> --}}
-                                                    <div class="modal fade text-left" id="add_provider" data-backdrop="static">
+                                                <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_category" title="Add">
+                                                    <i class="feather icon-plus"></i> Add skill category
+                                                </button>
+                                                    <div class="modal fade text-left" id="add_category" data-backdrop="static">
 
 
 
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                         
                         
                         
@@ -78,7 +78,7 @@
                         
                         
                         
-                                                                 <form class="form-group" action="" method="POST" enctype="multipart/form-data" id="">
+                                                                 <form class="form-group" action="{{route('admin.skillscategorystore')}}" method="POST" enctype="multipart/form-data" id="">
                         
                         
                         
@@ -90,7 +90,7 @@
                         
                         
                         
-                                                                        <h4 class="modal-title">Add User</h4>
+                                                                        <h4 class="modal-title">Add  Skill category</h4>
                         
                         
                         
@@ -126,78 +126,25 @@
                         
                         
                         
-                                                                                    <div class="col-sm-6 data-field">
+                                                                                    <div class="col-sm-12 data-field">
                         
                         
                         
-                                                                                        <label for="cat_name">First Name</label>
+                                                                                        <label for="cat_name">Category Name</label>
                         
-                        
-                        
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="col-sm-12 data-field">
                                                                                         <input name="name" type="text" class="form-control" id="name" required>
                         
                         
                         
                                                                                     </div>
-                                                                                    <div class="col-sm-6 data-field">
                         
                         
-                        
-                                                                                        <label for="name">Last Name</label>
-                        
-                        
-                        
-                                                                                        <input name="L_name" type="text" class="form-control" id="name" required>
-                        
-                        
-                        
-                                                                                    </div>
-                                                                                    <div class="col-sm-6 data-field">
-                        
-                        
-                        
-                                                                                        <label for="name">Email</label>
-                        
-                        
-                        
-                                                                                        <input name="email" type="email" class="form-control" id="name" required>
-                        
-                        
-                        
-                                                                                    </div>
-                                                                                    <div class="col-sm-6 data-field">
-                        
-                        
-                        
-                                                                                        <label for="name">Phone No</label>
-                        
-                        
-                        
-                                                                                        <input name="phone" type="text" class="form-control" id="name" required>
-                        
-                        
-                        
-                                                                                    </div>
-                                                                                    <div class="col-sm-6 data-field">
-
-                                                                                        <label for="platform_fee_percent">Address</label>
-                        
-                                                                                        <textarea class="form-control" aria-label="With textarea" name="address"></textarea>
-                        
-                                                                                    </div>
-                                                                                    <div class="col-sm-6 data-field">
-                        
-                        
-                        
-                                                                                        <label for="name">Password</label>
-                        
-                        
-                        
-                                                                                        <input name="password" type="password" class="form-control" id="name" required>
-                        
-                        
-                        
-                                                                                    </div>
+ 
+  
+                                                                                    
     
                         
                         
@@ -254,44 +201,24 @@
                     
                                         </div>
                     
-                                        <div class="table-responsive">
-                                            <table class="table zero-configuration">
+                                        <div class="table-responsive table-sm">
+                                            <table class="table zero-configuration table-sm">
                                                 <thead>
                                                     <tr>
-                                                        <th>First Name</th> 
-													   <th>Last Name</th>
-														<th>Company Name</th>
-														<th>Email</th>
-														<th>State</th>                         
-														<th>Action</th>
+                                                        <th>id</th> 
+                                                       <th>Category Name</th> 
+                                                       <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
-                                                    @foreach($providers as $provider)
+                                                    @foreach($skill_category as $category)
                                                     <tr>
-                                                        <td>{{$provider->name}}</td>
-														<td>{{$provider->l_name}}</td>
-														<td>{{$provider->company->comp_name}}</td>
-														<td>{{$provider->email}}</td>
-														<td>{{$provider->state->state}}</td>
+                                                        <td>{{$category->id}}</td>
+                                                        <td>{{$category->name}}</td>
+                    
                                                         <td>
-                                                            <div class="dropdown">
-
-                                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                Action
-                                                                </button>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    
-                                                                <a href="{{route('admin.provideredit',$provider->id)}}" class="edit_com pl-1">Edit </a>
-                                                                <br> <br>
-                                                                {{-- <a href="javascript:void(0)" class="deletebtn pl-1" data-companies_id =" " data-toggle="modal" data-target="#destroyModal">
-                                                                    Delete
-                                                                </a> --}}
-    
-                                                                {{-- <a class="dropdown-item" href="">Details</a> --}}
-                                                                </div>
+                                                             
                                                             
-                                       
                                                         </td>
 
                                                     </tr>
@@ -303,11 +230,7 @@
                                                 
 
                                             </table>
-                                            <div class="ml-30">
-                                                {{$providers->links()}}
-                                            </div>
-                                            
-
+                                            {{$skill_category->links()}}
                                         </div>
 
                                     </div>

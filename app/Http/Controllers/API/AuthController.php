@@ -131,6 +131,7 @@ class AuthController extends Controller
             $company->comp_reg_no=$request->comp_reg_no;
             $company->state_id=$request->state_id;
             $company->region_id=$reg_id->region_id;
+            $company->added_by='provider';
             $company->save();
             $comp_id=$company->id;  
         }
@@ -255,6 +256,7 @@ class AuthController extends Controller
             $company->comp_reg_no=$request->comp_reg_no;
             $company->state_id=$request->state_id;
             $company->region_id=$reg_id->region_id;
+            $company->added_by='user';
             $company->save();
             $comp_id=$company->id;  
         }

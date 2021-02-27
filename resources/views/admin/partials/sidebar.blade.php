@@ -37,13 +37,17 @@
                 <li class="nav-item" id=""><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
 
 
-                <li class=" navigation-header"><span>Company</span></li>
+                <li class=" navigation-header"><span>Admin</span></li>
                 <li class=" nav-item" id="admins"><a href="{{route('admin.company')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">Company</span></a></li>
+                <li class=" nav-item" id="admins"><a href="{{route('admin.skills_category')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills category </span></a></li>
                 <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
                 
-                <li class=" navigation-header"><span>Accounts</span></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Users</span></a></li> 
-                <li class=" nav-item" id="admins"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Providers</span></a></li>
+                <li class=" navigation-header"><span>Users</span></li>
+                <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">User Accounts</span></a></li> 
+                <li class=" nav-item" id="admins"><a href="{{route('admin.company')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">User Company List</span></a></li>
+                 <li class=" navigation-header"><span>Providers</span></li>
+                <li class=" nav-item" id="admins"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">Provider Accounts</span></a></li>
+                 <li class=" nav-item" id="admins"><a href=""><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">Provider Company List</span></a></li>
                 
 
                 <!-- <li class=" nav-item"><a href=""><i class="feather icon-volume-1"></i><span class="menu-title" data-i18n="Campaigns">Campaigns</span></a></li>
