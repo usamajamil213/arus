@@ -107,9 +107,15 @@ Route::get('dashboard',[
           // 'middleware'=>'can:superadmin'
           ]);
 
-     Route::get('company',[
+     Route::get('user-company-list',[
           'uses' => 'Company\CompanyController@index',
-          'as' => 'admin.company',
+          'as' => 'admin.usercompanylist',
+          // 'middleware'=>'can:superadmin'
+          
+          ]);
+     Route::get('si-company-list',[
+          'uses' => 'Company\CompanyController@si_company_list',
+          'as' => 'admin.sicompanylist',
           // 'middleware'=>'can:superadmin'
           
           ]);
