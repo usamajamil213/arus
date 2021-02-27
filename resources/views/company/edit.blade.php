@@ -143,6 +143,21 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1"> Added by :</label>
+                                        <select class="browser-default custom-select"  name="added_by"  required>
+                                       
+                                            <option value="user"  >User</option>   
+                                        
+                                            <option value="provider">Provider</option>
+                                             
+                                        
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="validationCustom01" class="mb-1"> Department :</label>
                                         <input class="form-control"  name="department" placeholder="Department" value="{{$company->department}}" type="text" required>
                                         <span class="text-danger">{{ $errors->first('department') }}</span>
