@@ -37,6 +37,17 @@
                                                                 <input class="form-control"  name="skills_type" placeholder="Add Skills Type" type="text" required>
                                                                 <span class="text-danger">{{ $errors->first('skills_type') }}</span>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="validationCustom01" class="mb-1"> Select skill Category :</label>
+                                                                <select class="form-control custom-select"   name="cat_id" id="" required>
+                                                                    <option>Select Skill Category</option>
+                                                                    @foreach ($cat as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                    @endforeach
+                                                                  
+                                                            </select>
+                                                                <span class="text-danger">{{ $errors->first('skills_type') }}</span>
+                                                            </div>
                                                             
                                                         </div>
                                                     </div>
@@ -58,6 +69,7 @@
                                     <tr>
                                         <th>ID</th> 
                                         <th>Skills Type</th> 
+                                        <th>Skill Category</th> 
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -67,6 +79,7 @@
                                         <tr>
                                             <td>{{$skill->id}}</td>
                                             <td>{{$skill->skills_type}}</td>
+                                            <td>{{$skill->skill_category->name}}</td>
                                         
                                             <td>
                                             <div>
@@ -91,8 +104,19 @@
                                                                         <input type="hidden" id="skill_id"  name="id" value ="{{$skill->id}}" required>
                                                                             <div class="form">
                                                                                 <div class="form-group">
-                                                                                    <label for="validationCustom01" class="mb-1"> Add Skills :</label>
+                                                                                    <label for="validationCustom01" class="mb-1">Skills :</label>
                                                                                     <input class="form-control"  name="skills_type" value ="{{$skill->skills_type}}" placeholder="Add Skills Type" type="text">
+                                                                                    <span class="text-danger">{{ $errors->first('skills_type') }}</span>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="validationCustom01" class="mb-1"> Select skill Category :</label>
+                                                                                    <select class="form-control custom-select"   name="cat_id" id="" required>
+                                          
+                                                                                        @foreach ($cat as $item)
+                                                                                        <option value="{{ $item->id }}" @if($skill->skill_category->id == $item->id) selected @endif>{{$item->name}}</option>
+                                                                                        @endforeach
+                                                                                      
+                                                                                </select>
                                                                                     <span class="text-danger">{{ $errors->first('skills_type') }}</span>
                                                                                 </div>
                                                                                 
@@ -138,13 +162,7 @@
                                         @endforeach
                                     </tbody>
                                         <hr> 
-                                        <tfoot>
-                                            <tr>
-                                            <th>ID</th> 
-                                            <th>SKills Type</th> 
-                                            <th>Action</th>
-                                            </tr>
-                                        </tfoot>
+                                         
                                 </table>
                                 <div class="align-left" style="float:right" > {{$skills->links() }} </div>
                             </div>

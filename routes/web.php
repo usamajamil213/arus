@@ -96,6 +96,16 @@ Route::get('dashboard',[
           // 'middleware'=>'can:superadmin'
 
           ]);
+     Route::get('skills-category',[
+          'uses' => 'Skills\SkillCategoryController@index',
+          'as' => 'admin.skills_category',
+          // 'middleware'=>'can:superadmin'
+          ]);
+     Route::post('skills-category',[
+          'uses' => 'Skills\SkillCategoryController@store',
+          'as' => 'admin.skillscategorystore',
+          // 'middleware'=>'can:superadmin'
+          ]);
 
      Route::get('company',[
           'uses' => 'Company\CompanyController@index',
