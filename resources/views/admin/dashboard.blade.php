@@ -40,12 +40,12 @@
 
                         
                             <div class="col-lg-4 col-sm-6 col-12">
-                            <a class="custom-card text-dark" href="{{route('admin.company')}}">    
+                            <a class="custom-card text-dark" href="{{route('admin.sicompanylist')}}">    
                             <div class="card">
                                 <div class="card-header d-flex flex-column align-items-start pb-2">
                                     <div class="avatar bg-rgba-primary p-50 m-0">
                                         <div class="avatar-content">
-                                           <!-- <a href="{{route('admin.company')}}"> -->
+                                           <!-- <a href="{{route('admin.sicompanylist')}}"> -->
                                             <i class="feather icon-users text-primary font-medium-5"></i>
                                         <!-- </a> -->
                                         </div>

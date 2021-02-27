@@ -21,7 +21,7 @@
 
                         <div class="col-12">
 
-                            <h2 class="content-header-title float-left mb-0">Company</h2>
+                            <h2 class="content-header-title float-left mb-0">{{$page_title}}</h2>
 
                             <div class="breadcrumb-wrapper col-12">
 
@@ -31,7 +31,7 @@
 
                                     </li>
 
-                                    <li class="breadcrumb-item active">Company
+                                    <li class="breadcrumb-item active">{{$page_title}}
 
                                     </li>
 
@@ -188,16 +188,11 @@
                                         <div class="table-responsive">
                                             <table class="table zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                    <th>First Name</th>                                
-                                                    <th>Last Name</th>                                
+                                                    <tr>                               
                                                     <th>Company Name</th>                                
-                                                    <th>Company Registration Number</th>    
-                                                    <th>Company Address</th>  
-                                                    <th>Postcode</th>                 
-                                                    <th>State</th> 
+                                                    <th>Company Registration Number</th>                     
                                                     <th>Region </th>
-                                                                                  
+                                                                              
                                                     <th>Email</th>
                                                     <th>Action</th>
                                                     </tr>
@@ -205,13 +200,8 @@
                                                 <tbody> 
                                                     @foreach($companies as $company)
                                                   <tr>
-                                                    <td>{{$company->f_name}}</td>
-                                                    <td>{{$company->l_name}}</td>
                                                     <td>{{$company->comp_name}}</td>
                                                     <td>{{$company->comp_reg_no}}</td>
-                                                    <td>{{$company->comp_adress}}</td>
-                                                    <td>{{$company->post_c}}</td>
-                                                    <td>{{$company->state->state}}</td>
                                                     <td>{{$company->region->region}}</td>
                                                     
                                                     <td>{{$company->email}}</td>

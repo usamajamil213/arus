@@ -13,9 +13,17 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies=Company::with('state','region')->paginate(8);
+        $companies=Company::where('added_by','user')->with('state','region')->paginate(8);
         //  dd($companies);
-        return view('company.company',compact('companies'));
+        $page_title='User Company List';
+        return view('company.company',compact('companies','page_title'));
+    }
+    public function si_company_list(){
+         $companies=Company::where('added_by','si')->with('state','region')->paginate(8);
+        //  dd($companies);
+         $page_title='SI Company List';
+        return view('company.company',compact('companies','page_title'));
+
     }
 
 
