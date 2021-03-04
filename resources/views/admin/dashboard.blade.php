@@ -50,8 +50,8 @@
                                         <!-- </a> -->
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700 mt-1">{{$companies}}</h2>
-                                    <p class="mb-0">Companies </p>
+                                    <h2 class="text-bold-700 mt-1">{{$u_companies}}</h2>
+                                    <p class="mb-0">User Companies </p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-2"></div>-->
@@ -70,13 +70,42 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700 mt-1">{{$providers}}</h2>
-                                    <p class="mb-0">Providers</p>
+                                    <p class="mb-0">System Integrators</p>
                                 </div>
                                 <!--<div class="card-content">-->
                                 <!--    <div id="line-area-chart-3"></div>-->
                                 <!--</div>-->
                             </div>
                         </div>
+                        </a>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-sm-6 col-12">
+                            <a class="custom-card text-dark" href="{{route('admin.usershow')}}">    
+
+                            <div class="card">
+                                <div class="card-header d-flex flex-column align-items-start pb-2">
+                                    <div class="avatar bg-rgba-primary p-50 m-0">
+                                        <div class="avatar-content">
+                                            <!-- <a href="{{route('admin.usershow')}}"> -->
+                                                <i class="feather icon-users text-primary font-medium-5"></i>
+                                            <!-- </a> -->
+                                            
+                                        </div>
+                                    </div>
+                                    <h2 class="text-bold-700 mt-1">{{$p_companies}}</h2>
+                                    <p class="mb-0">System Integrators companies</p>
+                                </div>
+                                <!--<div class="card-content">-->
+                                <!--    <div id="line-area-chart-1"></div>-->
+                                <!--</div>-->
+                            </div>
+                            </a>
+                        </div>
+
+
+                                            
                         </a>
                     </div>
                     
