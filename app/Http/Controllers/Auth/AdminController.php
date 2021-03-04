@@ -30,9 +30,10 @@ class AdminController extends Controller
             $providers = User::whereHas('roles', function ($query) use($role_id) {
                             $query->where('role_id', $role_id->id);
                         })->count();
-            $companies=Company::count();
+            $u_companies=Company::where('added_by','user')->count();
+            $p_companies=Company::where('added_by','si')->count();
           
-            return view('admin.dashboard',compact('users','providers','companies'));
+            return view('admin.dashboard',compact('users','providers','u_companies','p_companies'));
     }
      
     
