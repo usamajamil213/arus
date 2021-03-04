@@ -30,4 +30,5 @@ Route::post('verifiyEmailOtp', 'API\AuthController@verify_otp');
 Route::post('forgetPassword', 'API\AuthController@forget_password');
 Route::post('getcompanies', 'Company\api\ApiController@get_companies');
 Route::post('getSkills', 'Skills\api\ApiController@get_skills');
+Route::post('getProviders', 'Provider\api\ProviderApiController@get_providers');
 

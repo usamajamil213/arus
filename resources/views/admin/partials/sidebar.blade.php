@@ -38,7 +38,7 @@
                 <li class=" navigation-header"><span>Users</span></li>
                 <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">User Accounts</span></a></li> 
                 <li class=" nav-item" id="admins"><a href="{{route('admin.usercompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">User Company List</span></a></li>
-                 <li class=" navigation-header"><span>SIs</span></li>
+                 <li class=" navigation-header"><span>System Integrators</span></li>
                 <li class=" nav-item" id="admins"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">SI Accounts</span></a></li>
                  <li class=" nav-item" id="admins"><a href="{{route('admin.sicompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">SI Company List</span></a></li>
                  <li class=" navigation-header"><span>Admin</span></li>

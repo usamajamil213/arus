@@ -101,9 +101,19 @@ Route::get('dashboard',[
           'as' => 'admin.skills_category',
           // 'middleware'=>'can:superadmin'
           ]);
-     Route::post('skills-category',[
+     Route::post('update-category',[
+          'uses' => 'Skills\SkillCategoryController@update',
+          'as' => 'admin.skillscategoryupdate',
+          // 'middleware'=>'can:superadmin'
+          ]);
+      Route::post('skills-category',[
           'uses' => 'Skills\SkillCategoryController@store',
           'as' => 'admin.skillscategorystore',
+          // 'middleware'=>'can:superadmin'
+          ]);
+      Route::post('delete-category',[
+          'uses' => 'Skills\SkillCategoryController@delete',
+          'as' => 'admin.skillscategorydelete',
           // 'middleware'=>'can:superadmin'
           ]);
 

@@ -20,8 +20,26 @@ class SkillCategoryController extends Controller
         $new= new SkillCategory;
         $new->name=$request->name;
         $new->save();
-    alert()->success('Skill Category inserted successfully ');
+     alert()->success('Skill Category inserted successfully ');
      return redirect()->back();
+
+    }
+    public function update(Request $request){
+        $new= SkillCategory::where('id',$request->id)->first();
+        $new->name=$request->name;
+        $new->save();
+      alert()->success('Skill Category updated successfully ');
+     return redirect()->back();
+
+    }
+    public function delete(Request $request){
+
+        // dd($request);
+        $new= SkillCategory::where('id',$request->id)->first();
+        $new->delete();
+        alert()->success('Skill Category deleted successfully ');
+     return redirect()->back();
+
 
     }
 }
