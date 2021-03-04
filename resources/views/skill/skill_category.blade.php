@@ -217,7 +217,71 @@
                                                         <td>{{$category->name}}</td>
                     
                                                         <td>
-                                                             
+                                                            <div>
+                                                                <a href="javascript:void(0)" class="edit_com" data-news_id = "{{$category->id}}" data-category_name = "" data-category_image ="" data-toggle="modal" data-target="#editcategory{{$category->id}}"><i class="fa fa-edit mr-2 font-success edit"></i> </a>
+                
+                                                                <a href="javascript:void(0)" class="deletebtn" data-companies_id ="{{$category->id}}" data-toggle="modal" data-target="#destroyModal{{$category->id}}">
+                                                                <i class="fa fa-trash font-danger"></i>
+                                                                </a>
+                                                                
+                                                            <!-- Edit modal -->
+                                                                <div class="modal fade" id="editcategory{{$category->id}}" tabindex="-1"       role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Edit {{$category->name}}</h5>
+                                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                            </div>
+                                                                            <form action="{{route('admin.skillscategoryupdate')}}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                <div class="modal-body">
+                                                                                    <div class="form">
+                                                                                        <input type="hidden" id="category_id"  name="id" value ="{{$category->id}}" required>
+                                                                                            <div class="form">
+                                                                                                <div class="form-group">
+                                                                                                    <label for="validationCustom01" class="mb-1">category Name :</label>
+                                                                                                    <input class="form-control"  name="name" value ="{{$category->name}}" placeholder="category Name" type="text">
+                                                                                                    <span class="text-danger">{{ $errors->first('categorys_type') }}</span>
+                                                                                                </div>
+                                                                                                 
+                                                                                                
+                                                                                            </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button class="btn btn-primary" type="submit">Update</button>
+                                                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--    end Edit modal -->
+                                                            </div>
+                
+                                                            <!--    Delete modal -->
+                                                            <div class="modal fade" id="destroyModal{{$category->id}}" tabindex="-1"   role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <h5 class="modal-title">Delete {{$category->name}}</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                        <p>Are you sure you want to delete?.</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <form action="{{route('admin.skillscategorydelete')}}" method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id" id="" value="{{$category->id}}">
+                                                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>      
+                                                                            </form>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> 
                                                             
                                                         </td>
 

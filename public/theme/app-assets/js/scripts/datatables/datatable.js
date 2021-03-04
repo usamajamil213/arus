@@ -15,7 +15,7 @@ $(document).ready(function() {
     ****************************************/
 
     $('.zero-configuration').DataTable( {
-       paging: false
+       pagination: false
     } );
 
     /********************************************
