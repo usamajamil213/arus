@@ -88,8 +88,9 @@ class CompanyController extends Controller
         $companies->email=$request->email;
         // $companies->password=$request->password;
         $companies->save();
-        return redirect('/admin/company');
-        // return redirect()->back();
+        // return redirect('/admin/company');
+        alert()->success('Company Registered successfully ');
+         return redirect()->back();
 
        
     }
@@ -124,8 +125,9 @@ class CompanyController extends Controller
         $companies->email=$request->email;
         // $companies->password=$request->password;
         $companies->save();
-        // return redirect()->back();
-        return redirect('/admin/company');
+      alert()->success('company updated successfully ');
+       return redirect()->back();
+        // return redirect('/admin/company');
 
 
     }
@@ -134,7 +136,8 @@ class CompanyController extends Controller
     {
         $companies=Company::where('id',$request->id)->first();
         $companies->delete();
-        return redirect()->back();
+        alert()->success('company deleted successfully ');
+     return redirect()->back();
     }
 
     public function show( $id)
