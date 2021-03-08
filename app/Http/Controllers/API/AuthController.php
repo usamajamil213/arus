@@ -128,6 +128,8 @@ class AuthController extends Controller
             $company->comp_name=$request->comp_name;
             $company->post_c=$request->post_code;
             $company->comp_adress=$request->address;
+            $company->lat=$request->lat;
+            $company->lng=$request->lng;
             $company->email=$request->email;
             $company->comp_reg_no=$request->comp_reg_no;
             $company->state_id=$request->state_id;
@@ -254,6 +256,8 @@ class AuthController extends Controller
             $company->comp_name=$request->comp_name;
             $company->post_c=$request->post_code;
             $company->comp_adress=$request->address;
+            $company->lat=$request->lat;
+            $company->lng=$request->lng;
             $company->comp_reg_no=$request->comp_reg_no;
             $company->email=$request->email;
             $company->state_id=$request->state_id;
