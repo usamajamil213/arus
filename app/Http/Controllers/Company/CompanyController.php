@@ -66,7 +66,7 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request);
+         // dd($request);
         $this->validate($request,[
 
             'post_c'=> 'max:5 | min:5',
@@ -78,6 +78,8 @@ class CompanyController extends Controller
         $companies->comp_name=$request->comp_name;
         $companies->comp_reg_no=$request->comp_reg_no;
         $companies->comp_adress=$request->comp_adress;
+        $companies->lat=$request->lat;
+        $companies->lng=$request->lng;
         $companies->post_c=$request->post_c;
         $companies->state_id=$request->state;
         $companies->region_id=$request->region;
