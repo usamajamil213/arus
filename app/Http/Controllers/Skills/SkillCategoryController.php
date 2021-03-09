@@ -16,9 +16,23 @@ class SkillCategoryController extends Controller
         return view('skill.skill_category',compact('skill_category'));
     }
     public function store(Request $request){
-    
+    if ($request->hasFile('image')) 
+                            {
+
+                            $destinationPath = public_path()."/images/skill_category_images/";
+                            $extension =  $request->file('image')->getClientOriginalExtension();
+                            $fileName = time();
+                            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+                            if(!$request->file('image')->move($destinationPath,$fileName))
+                            {
+                                throw new \Exception("Failed Upload");                    
+                            }
+
+                            $picture = $fileName;
+                        } 
         $new= new SkillCategory;
         $new->name=$request->name;
+        $new->image=$picture;
         $new->save();
      alert()->success('Skill Category inserted successfully ');
      return redirect()->back();

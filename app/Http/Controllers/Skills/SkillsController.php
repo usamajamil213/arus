@@ -17,9 +17,24 @@ class SkillsController extends Controller
     }
     public function store(Request $request)
     {
+        if ($request->hasFile('image')) 
+                            {
+
+                            $destinationPath = public_path()."/images/skill_images/";
+                            $extension =  $request->file('image')->getClientOriginalExtension();
+                            $fileName = time();
+                            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+                            if(!$request->file('image')->move($destinationPath,$fileName))
+                            {
+                                throw new \Exception("Failed Upload");                    
+                            }
+
+                            $picture = $fileName;
+                        } 
         $skills= new Skill;
         $skills->category_id=$request->cat_id;
         $skills->skills_type=$request->skills_type;
+        $skills->image=$picture;
         $skills->save();
         return redirect()->back();
     
