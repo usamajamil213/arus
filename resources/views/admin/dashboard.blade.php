@@ -216,8 +216,6 @@
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
-@endsection()
-
     <script>
 
         window.onload = function() {
@@ -227,3 +225,7 @@
         };
 
     </script>
+
+@endsection()
+
+    

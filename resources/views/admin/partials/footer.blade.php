@@ -74,8 +74,14 @@
 
 
 </script>
+
+
+
 </body>
 <!-- END: Body-->
 @include('vendor.sweet.alert')
 @include('sweet::alert')
 </html>
+
+
+
