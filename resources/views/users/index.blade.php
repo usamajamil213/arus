@@ -323,4 +323,14 @@
 		</div>
 	</div>
 
+	<script>
+
+        window.onload = function() {
+
+        document.getElementById('uacc').classList.add('active');
+
+        };
+
+    </script>
+
 	@endsection

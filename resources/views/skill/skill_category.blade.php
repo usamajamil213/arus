@@ -62,180 +62,127 @@
                                         <div class="row">
 
                                             <div class="col-12 text-right">
+                
+                                                    <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_category" title="Add">
+                                                        <i class="feather icon-plus"></i> Add skill category
+                                                    </button>
+                                                <div class="modal fade text-left" id="add_category" data-backdrop="static">
+
+
+
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                     
-                                                <button type="button" class="btn btn-icon btn-primary btn waves-effect waves-light" data-toggle="modal" data-target="#add_category" title="Add">
-                                                    <i class="feather icon-plus"></i> Add skill category
-                                                </button>
-                                                    <div class="modal fade text-left" id="add_category" data-backdrop="static">
-
-
-
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                        
-                        
-                        
-                                                            <div class="modal-content div mt-2 px-2 d-flex new-data-title justify-content-around">
-                        
-                        
-                        
-                                                                 <form class="form-group" action="{{route('admin.skillscategorystore')}}" method="POST" enctype="multipart/form-data" id="">
-                        
-                        
-                        
-                                                                    @csrf
-                        
-                        
-                        
-                                                                    <div class="modal-header">
-                        
-                        
-                        
-                                                                        <h4 class="modal-title">Add  Skill category</h4>
-                        
-                        
-                        
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        
-                        
-                        
-                                                                            <span aria-hidden="true">x</span>
-                        
-                        
-                        
-                                                                        </button>
-                        
-                        
-                        
-                                                                    </div>
-                        
-                        
-                        
-                                                                    <div class="modal-body">
-                        
-                        
-                        
-                                                                        <div class="data-items pb-3">
-                        
-                        
-                        
-                                                                            <div class="data-fields px-2 mt-12">
-                        
-                        
-                        
-                                                                                <div class="row col-12">
-                        
-                        
-                        
-                                                                                    <div class="col-sm-12 data-field">
-                        
-                        
-                        
-                                                                                        <label for="cat_name">Category Name</label>
-                        
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="col-sm-12 data-field">
-                                                                                        <input name="name" type="text" class="form-control" id="name" required>
-                        
-                        
-                        
-                                                                                    </div>
-                        
-                        
- 
-  
-                                                                                    
-    
-                        
-                        
-                                                                             
-                        
-                        
-                        
+                    
+                    
+                                                        <div class="modal-content div mt-2 px-2 d-flex new-data-title justify-content-around">
+                    
+                    
+                    
+                                                            <form class="form-group" action="{{route('admin.skillscategorystore')}}" method="POST" enctype="multipart/form-data" id="">
+                    
+                    
+                    
+                                                                @csrf
+                    
+                    
+                    
+                                                                <div class="modal-header">
+                    
+                    
+                    
+                                                                    <h4 class="modal-title">Add  Skill category</h4>
+                    
+                    
+                    
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    
+                    
+                    
+                                                                        <span aria-hidden="true">x</span>
+                    
+                    
+                    
+                                                                    </button>
+                    
+                    
+                    
+                                                                </div>
+                    
+                    
+                    
+                                                                <div class="modal-body">
+                    
+                    
+                    
+                                                                    <div class="data-items pb-3">
+                    
+                    
+                    
+                                                                        <div class="data-fields px-2 mt-12">
+                    
+                    
+                    
+                                                                            <div class="row col-12">
+                    
+                    
+                    
+                                                                                <div class="col-sm-12 data-field">
+                    
+                    
+                    
+                                                                                    <label for="cat_name">Category Name</label>
+                    
                                                                                 </div>
-                        
-                        
-                        
-                                                                            </div>
-                                                                            <div class="data-fields px-2 mt-12">
-                        
-                        
-                        
-                                                                                <div class="row col-12">
-                        
-                        
-                        
-                                                                                    <div class="col-sm-12 data-field">
-                        
-                        
-                        
-                                                                                        <label for="cat_name">Category Image</label>
-                        
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="col-sm-12 data-field">
-                                                                                        <input name="image" type="file" class="form-control" id="" required>
-                        
-                        
-                        
-                                                                                    </div>
-                        
-                        
- 
-  
-                                                                                    
-    
-                        
-                        
-                                                                             
-                        
-                        
-                        
+                                                                                <br>
+                                                                                <div class="col-sm-12 data-field">
+                                                                                    <input name="name" type="text" class="form-control" id="name" required>
+                    
+                    
+                    
                                                                                 </div>
-                        
-                        
-                        
+                    
                                                                             </div>
-                        
-                        
-                        
+                    
                                                                         </div>
-                        
-                        
-                        
-                                                                    </div>
-                        
-                        
-                        
-                                                                    <div class="modal-footer">
-                        
-                        
-                        
-                                                                        <button type="submit" class="btn btn-primary">Add</button>
-                        
-                        
-                        
-                                                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                        
-                        
-                        
-                                                                    </div>
-                        
-                        
-                        
-                                                               </form> 
-                        
-                        
-                        
-                                                            </div><!-- /.modal-content -->
-                        
-                        
-                        
-                                                        </div><!-- /.modal-dialog -->
-                        
+                                                                        <div class="data-fields px-2 mt-12">
                     
-                                   
+                                                                            <div class="row col-12">
                     
+                                                                                <div class="col-sm-12 data-field">
+                    
+                                                                                    <label for="cat_name">Category Image</label>
+                    
+                                                                                </div>
+                                                                                <br>
+                                                                                <div class="col-sm-12 data-field">
+                                                                                    <input name="image" type="file" class="form-control" id="" required>
+                    
+                    
+                    
+                                                                                </div>
+                    
+                                                                            </div>
+                    
+                                                                        </div>
+                    
+                                                                    </div>
+                    
+                                                                </div>
+                    
+                                                                <div class="modal-footer">
+                    
+                                                                    <button type="submit" class="btn btn-primary">Add</button>
+                    
+                                                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    
+                                                                </div>
+                    
+                                                        </form> 
+                    
+                                                        </div><!-- /.modal-content -->
+                    
+                                                </div><!-- /.modal-dialog -->
+                
                                             </div>
                     
                                         </div>
@@ -244,9 +191,10 @@
                                             <table class="table zero-configuration table-sm">
                                                 <thead>
                                                     <tr>
-                                                        <th>id</th> 
-                                                       <th>Category Name</th> 
-                                                       <th>Action</th>
+                                                    <th>id</th> 
+                                                    <th>Category Name</th>
+                                                    <th>Image</th> 
+                                                    <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
@@ -254,6 +202,8 @@
                                                     <tr>
                                                         <td>{{$category->id}}</td>
                                                         <td>{{$category->name}}</td>
+                                                        <td> <img src="{{ asset('public/images/skill_category_images/'. $category->image) }}" alt="" class="img-fluid img-90  blur-up lazyloaded" width="100px" height="100px" ></td>
+                                                    
                     
                                                         <td>
                                                             <div>
@@ -282,7 +232,21 @@
                                                                                                     <input class="form-control"  name="name" value ="{{$category->name}}" placeholder="category Name" type="text">
                                                                                                     <span class="text-danger">{{ $errors->first('categorys_type') }}</span>
                                                                                                 </div>
-                                                                                                 
+
+                                                                                                <div class="row">
+                                                                                                    <div class="col-md-6">
+                                                                                                        <label for="validationCustom01" class="mb-1">category Image :</label>
+                                                                                                        <div class="form-group">
+                                                                                                            <img id="image" width="50%" src="">
+                                                                                                            <input type="file" id="image" name="image">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <img src="{{ asset('public/images/skill_category_images/'. $category->image) }}" alt="" class="img-fluid img-90  blur-up lazyloaded" widht="100px" height="100px">
+                                                                                                </div>
+                                                                                                
+                                        
+                                                                                            </div>
+                                                                                                
                                                                                                 
                                                                                             </div>
                                                                                 </div>
@@ -352,5 +316,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+    window.onload = function() {
+
+    document.getElementById('skilc').classList.add('active');
+
+    };
+    
+    </script>
+
 
     @endsection

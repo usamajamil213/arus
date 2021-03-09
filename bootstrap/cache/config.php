@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://aptwwa.com/',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:OWHKGuSKGUYnDhgza4xfB6r5RWpAKs3yO+CfHjPD5tE=',
+    'key' => 'base64:TBMcYKkZKg8itmS14ECRYgv10xkHvjdjZCa8Got9u+c=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -263,7 +263,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'arus',
         'username' => 'root',
@@ -283,7 +283,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'arus',
         'username' => 'root',
@@ -298,7 +298,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'arus',
         'username' => 'root',
@@ -350,7 +350,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\xampp\\htdocs\\arus\\storage\\app/public',
-        'url' => 'http://aptwwa.com//storage',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -468,11 +468,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mail.floatingyoutube.com',
-        'port' => '587',
-        'encryption' => 'tls',
-        'username' => 'arus@floatingyoutube.com',
-        'password' => '',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -505,8 +505,8 @@
     ),
     'from' => 
     array (
-      'address' => 'arus@floatingyoutube.com',
-      'name' => 'Arus',
+      'address' => NULL,
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
@@ -632,6 +632,8 @@
       'report_query_bindings' => true,
       'report_view_data' => true,
       'grouping_type' => NULL,
+      'report_logs' => true,
+      'maximum_number_of_collected_logs' => 200,
     ),
     'send_logs_as_events' => true,
   ),

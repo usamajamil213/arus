@@ -431,8 +431,8 @@ body.fixed-footer footer.footer-dark {
 }
 .main-menu.menu-light .navigation > li.active > a {
   background : -webkit-linear-gradient(332deg, #0f0f0f, rgba(0,0,0, 0.7));
-  background :         linear-gradient(118deg, #0f0f0f, rgba(0,0,0, 0.7));
-  box-shadow : 0 0 10px 1px rgba(0, 0, 0, 0.7);
+  background :         linear-gradient(118deg, #babfc7, rgb(186 191 199));
+  box-shadow : 0 0 10px 1px rgb(186 191 199);
   color : #FFFFFF;
   font-weight : 400;
   border-radius : 4px;

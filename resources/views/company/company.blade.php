@@ -401,14 +401,15 @@
     </div>
 </div>
 
-@endsection
-
 <script>
 
-        window.onload = function() {
+    window.onload = function() {
 
-        document.getElementById('services').classList.add('active');
+    document.getElementById('ucl').classList.add('active');
 
-        };
+    };
 
-    </script>
+</script>
+
+@endsection
+

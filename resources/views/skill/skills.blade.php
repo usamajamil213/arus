@@ -76,6 +76,7 @@
                                     <tr>
                                         <th>ID</th> 
                                         <th>Skills Type</th> 
+                                        <th>image</th>
                                         <th>Skill Category</th> 
                                         <th>Action</th>
                                     </tr>
@@ -86,6 +87,7 @@
                                         <tr>
                                             <td>{{$skill->id}}</td>
                                             <td>{{$skill->skills_type}}</td>
+                                            <td> <img src="{{ asset('public/images/skill_images/'. $skill->image) }}" alt="" class="img-fluid img-90  blur-up lazyloaded" width="100px" height="100px" ></td>
                                             <td>{{$skill->skill_category->name}}</td>
                                         
                                             <td>
@@ -114,6 +116,15 @@
                                                                                     <label for="validationCustom01" class="mb-1">Skills :</label>
                                                                                     <input class="form-control"  name="skills_type" value ="{{$skill->skills_type}}" placeholder="Add Skills Type" type="text">
                                                                                     <span class="text-danger">{{ $errors->first('skills_type') }}</span>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <label for="validationCustom01" class="mb-1">category Image :</label>
+                                                                                        <div class="form-group">
+                                                                                            <img id="image" width="50%" src="{{ asset('public/images/skill_images/'. $skill->image) }}"> <br>
+                                                                                            <input type="file" id="image" name="image">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="validationCustom01" class="mb-1"> Select skill Category :</label>
@@ -185,5 +196,15 @@
     <!-- END: Content-->
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
+
+    <script>
+
+    window.onload = function() {
+
+    document.getElementById('skil').classList.add('active');
+
+    };
+
+    </script>
 
 @endsection()

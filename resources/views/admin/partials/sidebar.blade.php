@@ -30,20 +30,21 @@
 
         <div class="shadow-bottom"></div>
 
-        <div class="main-menu-content">
+        <div class="main-menu-content" >
 
+            <div id="">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                    
-                <li class="nav-item" id=""><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>    
-                <li class=" navigation-header"><span>Users</span></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">User Accounts</span></a></li> 
-                <li class=" nav-item" id="admins"><a href="{{route('admin.usercompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">User Company List</span></a></li>
+                <li class="nav-item " id="dashboard"><a href="{{route('admin.dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>    
+                <li class=" navigation-header" id=""><span>Users</span></li>
+                <li class=" nav-item" id="uacc"><a href="{{route('admin.usershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">User Accounts</span></a></li> 
+                <li class=" nav-item"  id="ucl"><a href="{{route('admin.usercompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">User Company List</span></a></li>
                  <li class=" navigation-header"><span>System Integrators</span></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">SI Accounts</span></a></li>
-                 <li class=" nav-item" id="admins"><a href="{{route('admin.sicompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">SI Company List</span></a></li>
+                <li class=" nav-item" id="siacc"><a href="{{route('admin.providershow')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Users">SI Accounts</span></a></li>
+                 <li class=" nav-item" id="sicl"><a href="{{route('admin.sicompanylist')}}"><i class="feather icon-globe"></i><span class="menu-title" data-i18n="Users">SI Company List</span></a></li>
                  <li class=" navigation-header"><span>Admin</span></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.skills_category')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills category </span></a></li>
-                <li class=" nav-item" id="admins"><a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
+                <li class=" nav-item" id="skilc"><a href="{{route('admin.skills_category')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills category </span></a></li>
+                <li class=" nav-item" id="skil"> <a href="{{route('admin.skills')}}"><i class="feather icon-sunrise"></i><span class="menu-title" data-i18n="Users">Skills</span></a></li>
                 
 
                 <!-- <li class=" nav-item"><a href=""><i class="feather icon-volume-1"></i><span class="menu-title" data-i18n="Campaigns">Campaigns</span></a></li>
@@ -80,6 +81,7 @@
                 
 
             </ul>
+            </div>
 
         </div>
 
