@@ -38,6 +38,12 @@
                                                                 <span class="text-danger">{{ $errors->first('skills_type') }}</span>
                                                             </div>
                                                             <div class="form-group">
+                                                                <label for="validationCustom01" class="mb-1">Image</label>
+                                                                <input class="form-control"  name="image" placeholder="" type="file" required>
+                                                                 
+                                                            </div>
+                                                            
+                                                            <div class="form-group">
                                                                 <label for="validationCustom01" class="mb-1"> Select skill Category :</label>
                                                                 <select class="form-control custom-select"   name="cat_id" id="" required>
                                                                     <option>Select Skill Category</option>
@@ -48,6 +54,7 @@
                                                             </select>
                                                                 <span class="text-danger">{{ $errors->first('skills_type') }}</span>
                                                             </div>
+
                                                             
                                                         </div>
                                                     </div>
