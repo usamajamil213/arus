@@ -20,7 +20,7 @@ class ApiController extends Controller
         return $response;
     }
     public function get_skills_cat(){
-        $skills=SkillCategory::with('skill')->get();
+        $skills=SkillCategory::with('skill')->paginate(5);
         $response = [
             'success' => true,
             'success_message' =>'skills',
