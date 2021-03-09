@@ -42,18 +42,16 @@ class ProviderApiController extends Controller
 
                     return $response;         
             }
-            $providers=ProviderSkill::where('skill_id',$request->skill_id)->with('user')->get();
+            $providers=ProviderSkill::where('skill_id',$request->skill_id)->with('user','user.provider_rating')->paginate(10);
             $data = [];
             $i = 0;
           foreach($providers as $prov){
-
-
            $data[$i]['provider_id'] = $prov->user->id;
            $data[$i]['first_name'] = $prov->user->name;
            $data[$i]['last_name'] = $prov->user->l_name;
            $data[$i]['address'] = $prov->user->address;
-           // $data[$i]['rating'] = $prov->rating;
-
+           $data[$i]['rating'] = $prov->user->provider_rating->avg('rating');
+           $data[$i]['total_reviews'] = $prov->user->provider_rating->count('provider_idr');
            $i++;
        }
          //      $providers = User::whereHas('provider_skill', function ($query) use ($request) {
@@ -62,7 +60,7 @@ class ProviderApiController extends Controller
             if($request->search_type=='rating'){
             $providers = User::orderBy('rating','desc')->whereHas('provider_skill', function ($query) use ($request) {
         $query->where('skill_id','=',$request->skill_id);
-      })->with('provider_skill')->get();
+           })->with('provider_skill')->get();
         }
             
 
