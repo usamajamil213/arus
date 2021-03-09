@@ -74,5 +74,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Provider\ProviderSkill','provider_id','id');
 
     }
+    public function provider_rating(){
+        return $this->hasMany('App\Models\Provider\ProviderRating','provider_id','id');
+
+    }
     
 }
