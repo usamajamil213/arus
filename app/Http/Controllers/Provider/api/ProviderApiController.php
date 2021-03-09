@@ -45,7 +45,9 @@ class ProviderApiController extends Controller
                     return $response;         
             }
 
-        
+              $providers = User::whereHas('provider_skill', function ($query) use ($request) {
+          $query->where('skill_id','=',$request->skill_id);
+         })->with('provider_skill')->get();
             if($request->search_type=='rating'){
             //  $providers = User::orderBy('rating','desc')->with(['provider_skill' => function($query) use ($request) {
             //     $query->where('skill_id', $request->skill_id);
@@ -54,6 +56,7 @@ class ProviderApiController extends Controller
             $providers = User::orderBy('rating','desc')->whereHas('provider_skill', function ($query) use ($request) {
         $query->where('skill_id','=',$request->skill_id);
       })->with('provider_skill')->get();
+        }
             $data = [];
             $i = 0;
           foreach($providers as $prov){
@@ -77,6 +80,6 @@ class ProviderApiController extends Controller
                     ];
 
                     return $response;
-    }
+
 }
 }
