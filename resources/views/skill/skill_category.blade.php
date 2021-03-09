@@ -157,6 +157,45 @@
                         
                         
                                                                             </div>
+                                                                            <div class="data-fields px-2 mt-12">
+                        
+                        
+                        
+                                                                                <div class="row col-12">
+                        
+                        
+                        
+                                                                                    <div class="col-sm-12 data-field">
+                        
+                        
+                        
+                                                                                        <label for="cat_name">Category Image</label>
+                        
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="col-sm-12 data-field">
+                                                                                        <input name="image" type="file" class="form-control" id="" required>
+                        
+                        
+                        
+                                                                                    </div>
+                        
+                        
+ 
+  
+                                                                                    
+    
+                        
+                        
+                                                                             
+                        
+                        
+                        
+                                                                                </div>
+                        
+                        
+                        
+                                                                            </div>
                         
                         
                         
