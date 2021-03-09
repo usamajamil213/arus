@@ -23,11 +23,9 @@ class ProviderApiController extends Controller
     public function get_providers(Request $request){
         $validator = Validator::make([
                     'skill_id' => $request->skill_id,
-                    'search_type' => $request->search_type,
                 ],
                 [
                     'skill_id' => 'required',
-                    'search_type' => 'required',
                 ]
             );
     
