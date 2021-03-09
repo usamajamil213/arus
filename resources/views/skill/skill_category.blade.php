@@ -206,7 +206,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th>id</th> 
-                                                       <th>Category Name</th> 
+                                                       <th>Category Name</th>
+                                                       <th>Image</th> 
                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -215,6 +216,7 @@
                                                     <tr>
                                                         <td>{{$category->id}}</td>
                                                         <td>{{$category->name}}</td>
+                                                        <td>{{$category->image}}</td>
                     
                                                         <td>
                                                             <div>
