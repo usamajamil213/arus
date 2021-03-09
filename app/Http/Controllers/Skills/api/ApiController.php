@@ -29,7 +29,7 @@ class ApiController extends Controller
         return $response;
     }
     public function get_cat(){
-        $sk=SkillCategory::select('id','name')->get();
+        $sk=SkillCategory::select('id','name','image')->get();
         $response = [
             'success' => true,
             'success_message' =>'skills',
