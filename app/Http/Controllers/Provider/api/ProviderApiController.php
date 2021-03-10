@@ -115,6 +115,8 @@ public function get_provider_rewiews(Request $request){
                         'name' => $provider_rewiew->name,
                         'l_name' => $provider_rewiew->l_name,
                         'address' => $provider_rewiew->address,
+                        'image' => $provider_rewiew->image,
+                        'about' => $provider_rewiew->about,
                         'rating' => $provider_rewiew->provider_rating->avg('rating'),
                         'total_reviews' => $provider_rewiew->provider_rating->count('ratting'),
                         'skills' => $skills,
@@ -122,7 +124,7 @@ public function get_provider_rewiews(Request $request){
 
                     ];
 
-                  $provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->with('user')->get();
+                  $provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->with('user','user.company')->get();
              $data = [];
             $i = 0;
           foreach($provider_rewiews as $p){
@@ -130,6 +132,7 @@ public function get_provider_rewiews(Request $request){
            $data[$i]['first_name'] = $p->user->name;
            $data[$i]['last_name'] = $p->user->l_name;
            $data[$i]['image'] = $p->user->image;
+           $data[$i]['company_name'] = $p->user->company->name;
            $data[$i]['date'] = $p->created_at->format('m/d/Y');
            $data[$i]['comment'] = $p->comment;
            $data[$i]['rating'] = $p->rating;
@@ -156,7 +159,7 @@ public function get_provider_rewiews(Request $request){
                     ];
             $response = [
                         'success' => true,
-                        'error_message' =>'provider rewiew',
+                        'success_message' =>'provider rewiew',
                         'provider_data' =>$provider_data,
                         'provider_rewiews' =>$data,
                         'rating percentage' =>$rating_percentage,
