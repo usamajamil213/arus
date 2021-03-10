@@ -11,5 +11,11 @@ class ProviderRating extends Model
         public function provider_skill(){
         return $this->hasMany('App\Models\Provider\ProviderSkill','provider_id','provider_id');
     }
+    public function user(){
+        return $this->hasone('App\Models\User\User','id','user_id');
+    }
+    public function provider(){
+        return $this->hasone('App\Models\User\User','id','provider_id');
+    }
 
 }
