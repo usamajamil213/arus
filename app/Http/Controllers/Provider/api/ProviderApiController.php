@@ -51,6 +51,7 @@ class ProviderApiController extends Controller
            $data[$i]['last_name'] = $prov->user->l_name;
            $data[$i]['address'] = $prov->user->address;
            $data[$i]['image'] = $prov->user->image;
+           $data[$i]['starting_cost'] = $prov->user->starting_cost;
            $data[$i]['rating'] = $prov->user->provider_rating->avg('rating');
            $data[$i]['total_reviews'] = $prov->user->provider_rating->count('provider_id');
            $i++;
