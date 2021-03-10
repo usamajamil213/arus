@@ -148,7 +148,7 @@ class AuthController extends Controller
         $user->l_name = $request->l_name;
         $user->email = $request->email;
         $user->company_id = $comp_id;
-        $user->adress=$request->address;
+        $user->address=$request->address;
         $user->phone = $request->phone;
         $user->department=$request->department;
         $user->position=$request->position;
@@ -281,7 +281,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->company_id = $comp_id;
         $user->phone = $request->phone;
-        $user->adress=$request->address;
+        $user->address=$request->address;
         $user->department=$request->department;
         $user->position=$request->position;
         $user->post_code=$request->post_code;
