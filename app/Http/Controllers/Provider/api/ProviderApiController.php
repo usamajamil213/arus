@@ -77,4 +77,93 @@ class ProviderApiController extends Controller
                     return $response;
 
 }
+
+public function get_provider_rewiews(Request $request){
+     $validator = Validator::make([
+                    'provider_id' => $request->provider_id,
+                ],
+                [
+                    'provider_id' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+
+                    return $response;         
+            }
+            $provider_rewiew=User::where('id',$request->provider_id)->with('provider_rating','provider_skill','provider_skill.skill')->first();
+            // dd($provider_rewiew->provider_skill[1]->skill);
+            $skills = [];
+            $i = 0;
+          foreach($provider_rewiew->provider_skill as $sk){
+           $skills[$i]['id'] = $sk->skill->id;
+           $skills[$i]['name'] = $sk->skill->skill_type;
+           $skills[$i]['image'] = $sk->skill->image;
+           $i++;
+       }
+            $provider_data = [
+                        'id' => $provider_rewiew->id,
+                        'name' => $provider_rewiew->name,
+                        'l_name' => $provider_rewiew->l_name,
+                        'address' => $provider_rewiew->address,
+                        'rating' => $provider_rewiew->provider_rating->avg('rating'),
+                        'total_reviews' => $provider_rewiew->provider_rating->count('ratting'),
+                        'skills' => $skills,
+
+
+                    ];
+
+                  $provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->with('user')->get();
+             $data = [];
+            $i = 0;
+          foreach($provider_rewiews as $p){
+           $data[$i]['user_id'] = $p->user->id;
+           $data[$i]['first_name'] = $p->user->name;
+           $data[$i]['last_name'] = $p->user->l_name;
+           $data[$i]['image'] = $p->user->image;
+           $data[$i]['date'] = $p->created_at->format('m/d/Y');
+           $data[$i]['comment'] = $p->comment;
+           $data[$i]['rating'] = $p->rating;
+           $i++;
+       }
+       $t=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->count();
+       $t_five=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','5')->count();
+       $t_four=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','4')->count();
+       $t_three=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','3')->count();
+        $t_two=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','2')->count();
+        $t_one=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','1')->count();
+       $five_per=$t_five/$t;
+       $four_per=$t_four/$t;
+       $three_per=$t_three/$t;
+       $two_per=$t_two/$t;
+       $one_per=$t_one/$t;
+       $rating_percentage = [
+                        'five' => $five_per*100,
+                        'four' =>$four_per*100,
+                        'three' =>$three_per*100,
+                        'two' =>$two_per*100,
+                        'one' =>$one_per*100,
+
+                    ];
+            $response = [
+                        'success' => true,
+                        'error_message' =>'provider rewiew',
+                        'provider_data' =>$provider_data,
+                        'provider_rewiews' =>$data,
+                        'rating percentage' =>$rating_percentage,
+
+                    ];
+
+                    return $response;   
+
+}
 }
