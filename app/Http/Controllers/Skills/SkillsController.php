@@ -36,6 +36,7 @@ class SkillsController extends Controller
         $skills->skills_type=$request->skills_type;
         $skills->image=$picture;
         $skills->save();
+        alert()->success('Skill inserted successfully ');
         return redirect()->back();
     
     }
@@ -62,6 +63,7 @@ class SkillsController extends Controller
         $skills->image=$picture;
         $skills->category_id=$request->cat_id;
         $skills->save();
+        alert()->success('Skill updated successfully ');
         return redirect()->back();
 
     }
@@ -70,6 +72,7 @@ class SkillsController extends Controller
     {
         $skills=Skill::where('id',$request->id)->first();
         $skills->delete();
+        alert()->success('Skill deleted successfully ');
         return redirect()->back();
     }
 }
