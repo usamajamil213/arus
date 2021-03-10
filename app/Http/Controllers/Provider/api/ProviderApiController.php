@@ -149,8 +149,9 @@ public function get_provider_rewiews(Request $request){
        $four_per=0;
        $three_per=0;
        $two_per=0;
-       $one_per
-        }elseif ($t>0) {
+       $one_per=0;
+        }
+      elseif ($t>0) {
        $five_per=$t_five/$t;
        $four_per=$t_four/$t;
        $three_per=$t_three/$t;
