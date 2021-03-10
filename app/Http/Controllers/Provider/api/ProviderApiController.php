@@ -106,7 +106,7 @@ public function get_provider_rewiews(Request $request){
             $i = 0;
           foreach($provider_rewiew->provider_skill as $sk){
            $skills[$i]['id'] = $sk->skill->id;
-           $skills[$i]['name'] = $sk->skill->skill_type;
+           $skills[$i]['name'] = $sk->skill->skills_type;
            $skills[$i]['image'] = $sk->skill->image;
            $i++;
        }
