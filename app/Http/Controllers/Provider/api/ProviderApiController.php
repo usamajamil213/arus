@@ -130,6 +130,7 @@ public function get_provider_rewiews(Request $request){
            $data[$i]['first_name'] = $p->user->name;
            $data[$i]['last_name'] = $p->user->l_name;
            $data[$i]['image'] = $p->user->image;
+           $data[$i]['date'] = $p->created_at->format('m/d/Y');
            $data[$i]['comment'] = $p->comment;
            $data[$i]['rating'] = $p->rating;
            $i++;
