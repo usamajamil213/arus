@@ -237,11 +237,10 @@
                                                                                                     <div class="col-md-6">
                                                                                                         <label for="validationCustom01" class="mb-1">category Image :</label>
                                                                                                         <div class="form-group">
-                                                                                                            <img id="image" width="50%" src="">
+                                                                                                            <img id="image" width="50%" src="{{ asset('public/images/skill_category_images/'. $category->image) }}"">
                                                                                                             <input type="file" id="image" name="image">
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <img src="{{ asset('public/images/skill_category_images/'. $category->image) }}" alt="" class="img-fluid img-90  blur-up lazyloaded" widht="100px" height="100px">
                                                                                                 </div>
                                                                                                 
                                         
