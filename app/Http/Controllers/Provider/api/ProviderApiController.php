@@ -144,11 +144,20 @@ public function get_provider_rewiews(Request $request){
        $t_three=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','3')->count();
         $t_two=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','2')->count();
         $t_one=$provider_rewiews=ProviderRating::where('provider_id',$request->provider_id)->where('rating','1')->count();
+        if($t==0){
+       $five_per=0;
+       $four_per=0;
+       $three_per=0;
+       $two_per=0;
+       $one_per
+        }else{
        $five_per=$t_five/$t;
        $four_per=$t_four/$t;
        $three_per=$t_three/$t;
        $two_per=$t_two/$t;
        $one_per=$t_one/$t;
+        }
+       
        $rating_percentage = [
                         'five' => $five_per*100,
                         'four' =>$four_per*100,
