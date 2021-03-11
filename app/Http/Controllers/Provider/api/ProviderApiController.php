@@ -42,30 +42,30 @@ class ProviderApiController extends Controller
 
                     return $response;         
             }
-            $providers=ProviderSkill::where('skill_id',$request->skill_id)->with('user','user.provider_rating')->paginate(8);
+            $providers = User::whereHas('provider_skill', function ($query) use ($request) {
+           $query->where('skill_id','=',$request->skill_id);
+          })->with('provider_skill')->paginate(8);
+            if($request->search_type=='rating'){
+            $providers = User::orderBy('rating','desc')->whereHas('provider_skill', function ($query) use ($request) {
+           $query->where('skill_id','=',$request->skill_id);
+          })->with('provider_skill')->paginate(8);
+           
+           }
             $data = [];
             $i = 0;
           foreach($providers as $prov){
-           $data[$i]['provider_id'] = $prov->user->id;
-           $data[$i]['first_name'] = $prov->user->name;
-           $data[$i]['last_name'] = $prov->user->l_name;
-           $data[$i]['address'] = $prov->user->address;
-           $data[$i]['image'] = $prov->user->image;
-           $data[$i]['starting_cost'] = $prov->user->starting_cost;
-           $data[$i]['rating'] = $prov->user->provider_rating->avg('rating');
-           $data[$i]['total_reviews'] = $prov->user->provider_rating->count('provider_id');
+           $data[$i]['provider_id'] = $prov->id;
+           $data[$i]['first_name'] = $prov->name;
+           $data[$i]['last_name'] = $prov->l_name;
+           $data[$i]['address'] = $prov->address;
+           $data[$i]['image'] = $prov->image;
+           $data[$i]['starting_cost'] = $prov->starting_cost;
+           $data[$i]['rating'] = $prov->rating;
+           $data[$i]['total_reviews'] = $prov->rating_count;
            $i++;
        }
-         //      $providers = User::whereHas('provider_skill', function ($query) use ($request) {
-         //  $query->where('skill_id','=',$request->skill_id);
-         // })->with('provider_skill')->get();
-            if($request->search_type=='rating'){
-            $providers = User::orderBy('rating','desc')->whereHas('provider_skill', function ($query) use ($request) {
-        $query->where('skill_id','=',$request->skill_id);
-           })->with('provider_skill')->get();
-        }
-            
 
+           
              $response = [
                         'success' => true,
                         'success_message' => 'providers',
