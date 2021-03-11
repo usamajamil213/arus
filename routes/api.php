@@ -34,4 +34,5 @@ Route::post('getSkillsCategory', 'Skills\api\ApiController@get_skills_cat');
 Route::post('getCategories', 'Skills\api\ApiController@get_cat');
 Route::post('getProviders', 'Provider\api\ProviderApiController@get_providers');
 Route::post('getProviderReviews', 'Provider\api\ProviderApiController@get_provider_rewiews');
+Route::post('updateProfile', 'API\AuthController@update_profile');
 

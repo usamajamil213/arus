@@ -76,7 +76,9 @@ class User extends Authenticatable
     }
     public function provider_rating(){
         return $this->hasMany('App\Models\Provider\ProviderRating','provider_id','id');
-
+    }
+    public function rating(){
+        return $this->hasMany('App\Models\Provider\ProviderRating','provider_id','id')->avg('rating')->orderBy('rating');
     }
     
 }

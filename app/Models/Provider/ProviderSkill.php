@@ -13,4 +13,8 @@ class ProviderSkill extends Model
     public function skill(){
         return $this->hasone('App\Models\Company\Skill','id','skill_id');
     }
+    public function rating(){
+        return $this->hasMany('App\Models\Provider\ProviderRating','provider_id','provider_id');
+    }
+
 }

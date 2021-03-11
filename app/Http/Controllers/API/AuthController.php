@@ -523,59 +523,8 @@ class AuthController extends Controller
         return $response;
 
     }
-     public function change_name(Request $request){
-// dd($request);
-        $validator = Validator::make([
-                    
-                    'user_id' => $request->user_id,
-                    'user_name' => $request->user_name,
-                    
-                ],
-                [
-                    
-                    'user_id'  =>'required',
-                    'user_name'  =>'required',
-                    
-                ]
-            );
     
-            if ($validator->fails())
-            {
-
-                    $error = $validator->errors()->all();
-            
-                    $response = [
-                        'success' => false,
-                        'success_message' => $error ,
-                    ];
-
-                    return $response;          
-
-            }
-        $user = User::where('id',$request->user_id)->first();
-        $u_name=$request->user_name;
-        $user->name = $u_name;
-        $user->save();
-        $message = trans('Name Updated');
-        $message = $message;
-        $request = $user;
-        $response = [
-            'success' => true,
-            'success_message' => $message,
-            'data' =>[
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,            
-
-            ],
-        ];
-        //print_r($response);die();
-
-        return $response;
-
-    }
-    
-    public function change_password(Request $request)
+    public function update_profile(Request $request)
 {
 $validator = Validator::make([
                     
@@ -610,11 +559,17 @@ $validator = Validator::make([
             $user=User::where('id',$request->user_id)->first();
             $user_pass=$user->password;
         if (Hash::check($request->old_password,$user_pass)) {
-        $user->password = $request->new_password?Hash::make($request->new_password):null;
+        $user->password = $request->new_password?Hash::make($request->new_password):null; 
+        $user->email=$request->email;
+        $user->about=$request->about;
+        $user->phone=$request->phone;
+        $user->starting_cost=$request->starting_cost;
+        $user->name=$request->first_name;
+        $user->l_name=$request->last_name;
+        $user->dob=$request->dob;
         $user->save();
-        $message = trans('Password Updated');
+        $message = trans('Profile Updated');
         $message = $message;
-        $request = $user;
         $response = [
             'success' => true,
             'success_message' => $message,
