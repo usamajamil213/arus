@@ -529,6 +529,52 @@ class AuthController extends Controller
 $validator = Validator::make([
                     
                     'user_id' => $request->user_id,
+                    
+                ],
+                [
+                    
+                    'user_id'  =>'required',
+                    
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'success_message' => $error ,
+                    ];
+
+                    return $response;          
+
+            }
+
+        $user=User::where('id',$request->user_id)->first();
+        $user->email=$request->email;
+        $user->about=$request->about;
+        $user->phone=$request->phone;
+        $user->starting_cost=$request->starting_cost;
+        $user->name=$request->first_name;
+        $user->l_name=$request->last_name;
+        $user->dob=$request->dob;
+        $user->address=$request->address;
+        $user->save();
+        $message = trans('Profile Updated');
+        $message = $message;
+        $response = [
+            'success' => true,
+            'success_message' => $message,
+        ];
+        return $response;
+
+}
+public function change_password(Request $request){
+    $validator = Validator::make([
+                    
+                    'user_id' => $request->user_id,
                     'old_password' => $request->old_password,
                     'new_password' => $request->new_password,
                     
@@ -560,15 +606,8 @@ $validator = Validator::make([
             $user_pass=$user->password;
         if (Hash::check($request->old_password,$user_pass)) {
         $user->password = $request->new_password?Hash::make($request->new_password):null; 
-        $user->email=$request->email;
-        $user->about=$request->about;
-        $user->phone=$request->phone;
-        $user->starting_cost=$request->starting_cost;
-        $user->name=$request->first_name;
-        $user->l_name=$request->last_name;
-        $user->dob=$request->dob;
         $user->save();
-        $message = trans('Profile Updated');
+        $message = trans('Password Updated');
         $message = $message;
         $response = [
             'success' => true,
@@ -589,8 +628,7 @@ $validator = Validator::make([
         //print_r($response);die();
 
         return $response;
-        }
-
+    }
 
 }
   public function send_otp(Request $request){
