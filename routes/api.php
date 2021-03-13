@@ -35,5 +35,6 @@ Route::post('getCategories', 'Skills\api\ApiController@get_cat');
 Route::post('getProviders', 'Provider\api\ProviderApiController@get_providers');
 Route::post('getProviderReviews', 'Provider\api\ProviderApiController@get_provider_rewiews');
 Route::post('updateProfile', 'API\AuthController@update_profile');
+Route::post('changePassword', 'API\AuthController@change_password');
 Route::post('addBooking', 'Booking\api\BookingApiController@add_booking');
 
