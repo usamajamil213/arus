@@ -37,4 +37,7 @@ Route::post('getProviderReviews', 'Provider\api\ProviderApiController@get_provid
 Route::post('updateProfile', 'API\AuthController@update_profile');
 Route::post('changePassword', 'API\AuthController@change_password');
 Route::post('addBooking', 'Booking\api\BookingApiController@add_booking');
+Route::post('checkBookingStatus', 'Booking\api\BookingApiController@checkbooking');
+Route::post('changeBookingStatus', 'Booking\api\BookingApiController@change_status');
+Route::post('getUserBookings', 'Booking\api\BookingApiController@getuserbooking');
 

@@ -92,4 +92,154 @@ $validator = Validator::make([
 
                     return $response;      
     }
+    public function checkbooking(Request $request){
+        $validator = Validator::make([
+                    'date' => $request->date,
+                    'provider_id' => $request->provider_id,
+                ],
+                [
+                    'date' => 'required',
+                    'provider_id' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+
+                    return $response;         
+            }
+            $b=Booking::where('provider_id',$request->provider_id)->where('date',$request->date)->where('status','ongoing')->count();
+            if($b==0){
+             $message='provider is  available';
+             $response = [
+                        'success' => true,
+                        'success_message' =>$message,
+                    ];
+                    return $response;
+            }
+            $response = [
+                        'success' => true,
+                        'success_message' => 'provider is already booked',
+
+                    ];
+
+                    return $response;
+    }
+    public function change_status(Request $request){
+        $validator = Validator::make([
+                    'booking_id' => $request->booking_id,
+                    'status' => $request->status,
+                ],
+                [
+                    'booking_id' => 'required',
+                    'status' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+
+                    return $response;         
+            }
+            $b=Booking::where('id',$request->booking_id)->first();
+            if($request->status=='ongoing'){
+                $b->status=$request->status;
+                $b->start_date=date('Y-m-d H:i:s');
+                $b->save();
+                $response = [
+                        'success' => true,
+                        'success_message' => 'booking status updated successfully',
+
+                    ];
+
+                    return $response;
+
+            }
+            elseif ($request->status=='completed') {
+                $b->status=$request->status;
+                $b->end_date=date('Y-m-d H:i:s');;
+                $b->save();
+                $response = [
+                        'success' => true,
+                        'success_message' => 'booking status updated successfully',
+
+                    ];
+
+                    return $response;
+            }
+            else{
+                $response = [
+                        'success' => false,
+                        'success_message' => 'something went wrong',
+
+                    ];
+
+                    return $response;
+            }
+
+    }
+   public function getuserbooking(Request $request){
+    $validator = Validator::make([
+                    'user_id' => $request->user_id,
+                    'status' => $request->status,
+                ],
+                [
+                    'user_id' => 'required',
+                    'status' => 'required',
+                ]
+            );
+    
+            if ($validator->fails())
+            {
+
+                    $error = $validator->errors()->all();
+            
+                    $response = [
+                        'success' => false,
+                        'error_message' => $error,
+
+                    ];
+
+                    return $response;         
+            }
+            $bookings=Booking::where('user_id',$request->user_id)->where('status',$request->status)->with('provider','provider.company')->get();
+            $data = [];
+            $i = 0;
+          foreach($bookings as $b){
+           $data[$i]['provider_id'] = $b->provider->id;
+           $data[$i]['provider_name'] = $b->provider->name;
+           $data[$i]['company_name'] = $b->provider->company->comp_name;
+           $data[$i]['price'] = $b->estimated_price;
+           $data[$i]['starting_cost'] = $b->provider->starting_cost;
+           $data[$i]['date'] = $b->date;
+           $data[$i]['time'] = $b->time;
+           $i++;
+       }
+       $response = [
+                        'success' => true,
+                        'success_message' => 'user bookings',
+                        'user_bookings' => $data,
+
+                    ];
+
+                    return $response;  
+
+
+   }
 }
