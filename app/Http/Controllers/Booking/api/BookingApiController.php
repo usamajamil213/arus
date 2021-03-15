@@ -27,7 +27,6 @@ $validator = Validator::make([
                     'user_id' => $request->user_id,
                     'date' => $request->date,
                     'time' => $request->time,
-                    'place' => $request->place,
                     'booking_info' => $request->booking_info,
                     'booking_docs' => $request->booking_docs,
                     'skill_id' => $request->skill_id,
@@ -37,7 +36,6 @@ $validator = Validator::make([
                     'user_id' => 'required',
                     'date' => 'required',
                     'time' => 'required',
-                    'place' => 'required',
                     'booking_info' => 'required',
                     'booking_docs' => 'required',
                     'skill_id' => 'required',
@@ -63,7 +61,6 @@ $validator = Validator::make([
             $b->booking_info=$request->booking_info;
             $b->provider_id=$request->provider_id;
             $b->user_id=$request->user_id;
-            $b->place=$request->place;
             $b->estimated_price=7000;
             $b->skill_id=$request->skill_id;
             $b->save();
@@ -116,7 +113,10 @@ $validator = Validator::make([
 
                     return $response;         
             }
-            $b=Booking::where('provider_id',$request->provider_id)->where('date',$request->date)->where('status','ongoing')->count();
+            $b=Booking::where('provider_id',$request->provider_id)->where('date',$request->date)->where(function ($query) {
+       $query->where('status', '=', 'upcoming')
+          ->orWhere('status', '=', 'ongoing');
+   })->count();
             if($b==0){
              $message='provider is  available';
              $response = [
