@@ -224,6 +224,7 @@ $validator = Validator::make([
           foreach($bookings as $b){
            $data[$i]['provider_id'] = $b->provider->id;
            $data[$i]['provider_name'] = $b->provider->name;
+           $data[$i]['address'] = $b->provider->address;
            $data[$i]['company_name'] = $b->provider->company->comp_name;
            $data[$i]['price'] = $b->estimated_price;
            $data[$i]['starting_cost'] = $b->provider->starting_cost;
